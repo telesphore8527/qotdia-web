@@ -1,0 +1,11 @@
+.app-shell{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid var(--primary-color);
+}
+main{
+    padding: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 4rem;
+}

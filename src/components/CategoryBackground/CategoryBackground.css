@@ -1,0 +1,45 @@
+/** “
+ * Styles du composant CategoryBackground.
+ * À importer dans CategoryBackground.jsx via `import './CategoryBackground.css'`
+ * ou centralisé dans globals.css selon ta convention actuelle. 
+
+ */
+
+.category-background {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: inherit; /* hérite du border-radius de la carte parente */
+  overflow: hidden;
+}
+
+.category-background__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: var(--radius-sm);
+}
+
+.category-background__scrim {
+  position: absolute;
+  inset: 0;
+  /* Transparent en haut, sombre en bas : la citation est presque
+     toujours positionnée dans la moitié basse de la carte (cf. ton
+     mockup Accueil), donc c'est là qu'il faut le plus de contraste. */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none; /* laisse passer les clics vers le contenu en dessous */
+  border-radius: var(--radius-sm);
+  
+}
+
+.category-background__content {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  /* display: flex;
+  flex-direction: column; */
+  /* padding: 20px;
+  height: 400px; */
+}

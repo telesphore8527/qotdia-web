@@ -1,0 +1,53 @@
+.header-section{
+    /* position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%; */
+}
+.header-section h1{
+    text-align: center;
+    /* padding: .2rem; */
+}
+.header {
+  display: flex;
+  align-items: center;
+  /* gap: 2.5rem; */
+  padding: .5rem .5rem;
+  line-height: .9;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  background: var(--color-surface);
+  position: fixed; 
+  width: 100%;
+  max-width: 500px;
+  top: 0;
+  z-index: 10; 
+}
+.brand{
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+.logo-wrap{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.brand-name{
+    font-weight: bold;
+    font-family: poppins;
+    font-size: 1.5rem;
+    line-height: .9;
+}
+.sub-brand{
+    font-size: .75rem;
+    color: var(--color-text-secondary);
+}
+
+.header-title{
+    font-weight: bold;
+    /* font-size: 1.5rem; */
+    /* text-align: center; */
+    font-size: 1.5rem;
+}

@@ -1,0 +1,37 @@
+import { useLocation, Link } from "react-router-dom";
+import "./Header.css";
+import { LuSettings } from "react-icons/lu";
+const Header = () => {
+  const { pathname } = useLocation();
+  const PAGE_TITLE = {
+    "/": "",
+    "/explorer": "Explorer",
+    "/favorites": "Mes Favories",
+    "/settings": "Reglages",
+  };
+
+  return (
+    <div className="header-section">
+      <header className="header">
+      <a href="/" className="brand">
+        <div className="logo-wrap">
+          <img src="logo.png" alt="logo" />
+        </div>
+        <div>
+          <div className="brand-name">Qotdia</div>
+          <span className="sub-brand">ta dose quot d'inspi</span>
+        </div>
+      </a>
+      <h1 className="header-title">{ PAGE_TITLE[pathname] }</h1>
+
+      <Link to="/settings" className="nav-icon" style={{marginRight: ".8rem"}}>
+      <LuSettings />
+      </Link>
+    
+    </header>
+      
+    </div>
+  );
+};
+
+export default Header;

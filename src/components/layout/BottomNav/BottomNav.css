@@ -1,0 +1,27 @@
+.bottomnav {
+  position: fixed;
+  width: 100%;
+  max-width: 500px;
+  bottom: 0;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+.bottomnav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .7rem 0;
+}
+.bottomnav ul a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .9rem;
+}
+.bottomnav ul a.active{
+    color: var(--color-primary);
+    font-weight: bold;
+}
+.nav-icon{
+    font-size: 1.3rem;
+}
