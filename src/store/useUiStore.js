@@ -3,7 +3,7 @@ import { create } from "zustand";
 const getInitialTheme = () => {
   const saved = localStorage.getItem("qotdia-theme");
 
-  if (!saved || (saved != "light" && saved != "dark")) {
+  if (!saved) {
     return window.matchMedia("(prefer-color-scheme:dark)").matches
       ? "dark"
       : "light";

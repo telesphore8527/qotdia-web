@@ -5,9 +5,9 @@ const Header = () => {
   const { pathname } = useLocation();
   const PAGE_TITLE = {
     "/": "",
-    "/explorer": "Explorer",
-    "/favorites": "Mes Favories",
-    "/settings": "Reglages",
+    "/explorer": "Explore",
+    "/favorites": "My Favorites",
+    "/settings": "Settings",
   };
 
   return (

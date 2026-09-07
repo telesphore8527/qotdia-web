@@ -29,7 +29,7 @@ const BottomNav = () => {
                 <LuHouse className="nav-icon" />
               )}
 
-              <span>Accueil</span>
+              <span>Home</span>
             </NavLink>
           </li>
 
@@ -43,7 +43,7 @@ const BottomNav = () => {
               ) : (
                 <LuSearch className="nav-icon" />
               )}
-              <span>Explorer</span>
+              <span>Explore</span>
             </NavLink>
           </li>
 
@@ -57,7 +57,7 @@ const BottomNav = () => {
               ) : (
                 <LuHeart className="nav-icon" />
               )}
-              <span>Favoris</span>
+              <span>Favorites</span>
             </NavLink>
           </li>
 
@@ -71,7 +71,7 @@ const BottomNav = () => {
               ) : (
                 <LuSettings className="nav-icon" />
               )}
-              <span>Réglages</span>
+              <span>Settings</span>
             </NavLink>
           </li>
         </ul>

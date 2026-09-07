@@ -1,0 +1,93 @@
+.setting-label-section {
+  color: var(--color-text-secondary);
+  padding: 0.5rem;
+  
+}
+
+.setting-section {
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  
+}
+
+.setting-hr {
+  width: 90%;
+  margin: auto;
+  border: .5px solid lightgray;
+}
+
+/* SettingRow  */
+
+.settingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: inherit;
+  background: transparent;
+  width: 100%;
+  /* cursor: default; */
+  color: var(--color-text);
+}
+p {
+  text-align: left;
+}
+.settingRow .settingRow-title {
+  font-weight: bold;
+  text-align: left;
+  font-size: 1.2rem;
+  
+}
+.settingRow .settingRow-subtitle {
+  color: var(--color-text-secondary);
+}
+
+/* time */
+.setting-time-zone{
+    padding: .5rem;
+}
+.setting-time-zone input{
+    width: 100%;
+    border-radius: var(--radius-sm);
+}
+
+/* input[type='checkbox'] */
+
+.setting-checkbox {
+  appearance: none;
+  accent-color: var(--color-primary);
+  width: 42px;
+  height: 22px;
+  background: gray;
+  border-radius: 1rem;
+  position: relative;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.setting-checkbox:checked {
+  background: var(--color-primary);
+}
+.setting-checkbox::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.5s;
+  top: 1px;
+  left: 1px;
+}
+.setting-checkbox:checked::after {
+  transform: translateX(100%);
+}
+
+/* input[type='raio'] */
+
+.setting-radio {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
