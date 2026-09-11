@@ -1,0 +1,67 @@
+.favquotecard {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-shadow: var(--shadow-card);
+  margin: 1.5rem 0.5rem;
+}
+.favquotecard .icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.favquotecard-header,
+.favquotecard-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favquotecard-categ,
+.favquotecard-right,
+.favquotecard-author,
+.favquotecard-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
+}
+.favquotecard-categ {
+  border-radius: 2rem;
+  line-height: 0.6;
+  font-size: .9rem;
+}
+.favquotecard-right,
+.favquotecard-actions {
+  gap: 1.5rem;
+}
+.favquotecard-right span:first-child{
+    color: var(--color-text-secondary);
+}
+
+.favquotecard-body {
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 1rem;
+}
+.favquotecard-body p:last-child{
+    text-align: center;
+}
+.favquotecard-body .favquotecard-icon {
+  color: var(--color-text-secondary);
+  font-size: 2rem;
+  line-height: 0.5;
+}
+
+
+.favquotecard-author-profile{
+    border-radius: 50%;
+    padding: .5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}

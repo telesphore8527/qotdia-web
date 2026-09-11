@@ -17,6 +17,7 @@
  *              toujours donné dans cet ordre (haut → bas)
  */
 
+
 export const CATEGORY_VISUALS = {
   motivation: {
     shape: 'peaks',
@@ -91,4 +92,95 @@ export const DEFAULT_VISUAL = {
  */
 export function getCategoryVisual(slug) {
   return CATEGORY_VISUALS[slug] ?? DEFAULT_VISUAL;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const CATEGORY_COLORS = {
+  motivation: {
+    bg: 'rgba(108, 92, 231, 0.5)',
+    text: '#6C5CE7',
+    icon: 'LuBook'
+  },
+  success: {
+    bg: 'rgba(253, 203, 110, 0.5)',
+    text: '#FDCB6E',
+    icon: 'LuBook'
+  },
+  perseverance: {
+    bg: 'rgba(72, 52, 212, 0.5)',
+    text: '#4834D4',
+    icon: 'LuBook'
+  },
+  career: {
+    bg: 'rgba(52, 73, 94, 0.5)',
+    text: '#34495E',
+    icon: 'LuBook'
+  },
+
+  wisdom: {
+    bg: 'rgba(0, 184, 148, 0.5)',
+    text: '#00B894',
+    icon: 'LuBook'
+  },
+  philosophy: {
+    bg: 'rgba(75, 101, 132, 0.5)',
+    text: '#4B6584',
+    icon: 'LuBook'
+  },
+  learning: {
+    bg: 'rgba(0, 206, 201, 0.5)',
+    text: '#00CEC9',
+    icon: 'LuBook'
+  },
+  hope: {
+    bg: 'rgba(116, 185, 255, 0.5)',
+    text: '#74B9FF',
+    icon: 'LuBook'
+  },
+
+  love: {
+    bg: 'rgba(253, 121, 168, 0.5)',
+    text: '#FD79A8',
+    icon: 'LuBook'
+  },
+  relationships: {
+    bg: 'rgba(250, 177, 160, 0.5)',
+    text: '#FAB1A0',
+    icon: 'LuBook'
+  },
+  happiness: {
+    bg: 'rgba(255, 217, 61, 0.5)',
+    text: '#FFD93D',
+    icon: 'LuBook'
+  },
+
+  'self-confidence': {
+    bg: 'rgba(162, 155, 254, 0.5)',
+    text: '#A29BFE',
+    icon: 'LuBook'
+  },
+};
+
+export const DEFAULT_COLORS = {
+  bg: 'rgba(45, 52, 54, 0.5)',
+  text: '#2D3436',
+  icon: 'LuBook'
+};
+
+
+export function getCategoryColors(slug) {
+  return CATEGORY_COLORS[slug] ?? DEFAULT_COLORS;
 }

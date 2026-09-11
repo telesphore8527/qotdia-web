@@ -2,13 +2,12 @@ import "./BottomNav.css";
 import { NavLink, useLocation } from "react-router-dom";
 import {
   LuHouse,
-  LuSearch,
   LuSettings,
   LuHeart,
   LuSettings2,
+  LuCompass
 } from "react-icons/lu";
-import { FaHeart, FaHouse } from "react-icons/fa6";
-import { FaSearch } from "react-icons/fa";
+import { FaHeart, FaHouse, FaCompass } from "react-icons/fa6";
 
 const BottomNav = () => {
   const { pathname } = useLocation();
@@ -39,9 +38,9 @@ const BottomNav = () => {
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               {pathname === "/explorer" ? (
-                <FaSearch className="nav-icon" />
+                <FaCompass className="nav-icon" />
               ) : (
-                <LuSearch className="nav-icon" />
+                <LuCompass className="nav-icon" />
               )}
               <span>Explore</span>
             </NavLink>

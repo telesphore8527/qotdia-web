@@ -16,7 +16,8 @@
   line-height: .9;
   justify-content: space-between;
   box-shadow: var(--shadow-card);
-  background: var(--color-surface);
+  background: var(--color-bg);
+  border-bottom: 2px solid var(--color-border);
   position: fixed; 
   width: 100%;
   max-width: 500px;

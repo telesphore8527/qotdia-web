@@ -3,6 +3,7 @@ import DailyQuoteCard from "../components/DailyQuoteCard/DailyQuoteCard";
 const Home = () => {
   return (
     <div>
+      je suis juste entrain de tester l'affchage des trucs sur les pages en abs du header  <br /><br />
       <DailyQuoteCard
         quote={{
           id:20,

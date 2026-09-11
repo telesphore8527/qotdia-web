@@ -29,6 +29,7 @@
   width: 100%;
   /* cursor: default; */
   color: var(--color-text);
+  background: var(--color-surface);
 }
 p {
   text-align: left;

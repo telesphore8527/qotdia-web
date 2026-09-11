@@ -1,5 +1,5 @@
 /** @type {NextPage} */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useUiStore } from "../store/useUiStore";
 import "../styles/Settings.css";
 import { FaChevronRight } from "react-icons/fa6";
@@ -37,12 +37,6 @@ const Settings = () => {
   const [time, setTime] = useState("07:00");
   const [editingTime, setEditingTime] = useState(false);
 
-
-  const onTheme = () => {
-    setTheme("dark")
-    console.log("je fonctionne...", theme);
-    
-  };
 
   return (
     <div>

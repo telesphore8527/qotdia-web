@@ -24,7 +24,7 @@ const DailyQuoteCard = ({ quote }) => {
         <article className="quote-card">
           <div>
             <p className="quote-icon"> “ </p>
-            <p className="quote-content">{quote.content}</p>
+            <p className="quote-content"> " {quote.content} "</p>
 
             <p className="quote-author">
               <i> -- {quote.author} </i>

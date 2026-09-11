@@ -3,7 +3,8 @@
   width: 100%;
   max-width: 500px;
   bottom: 0;
-  background: var(--color-surface);
+  background: var(--color-bg);
+  border-top: 2px solid var(--color-border);
   box-shadow: var(--shadow-card);
 }
 .bottomnav ul{
