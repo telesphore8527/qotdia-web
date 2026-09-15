@@ -26,7 +26,7 @@ export const useFavoriteStore = create(
     }),
     {
       name: "qotdia-favorites",
-      storage: createJSONStorage(() => localforage),
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );

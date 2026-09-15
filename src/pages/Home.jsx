@@ -1,20 +1,23 @@
 /** @type {NextPage} */
 import DailyQuoteCard from "../components/DailyQuoteCard/DailyQuoteCard";
+import { useQuoteOfToday } from "../hooks/useQuoteOfToday";
+
+
+
+
+
 const Home = () => {
+
+  const {data, isLoading, isError} = useQuoteOfToday();
+
+if(isLoading) return <p>is isLoading...</p>
+if(isError) return <p>Error X</p>
+
   return (
     <div>
-      je suis juste entrain de tester l'affchage des trucs sur les pages en abs du header  <br /><br />
+      Quote of the day... {(new Date()).toDateString()} <br /><br />
       <DailyQuoteCard
-        quote={{
-          id:20,
-          content: "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-          author: "Telesphore",
-          category: {
-            name: "Relationships",
-            slug: "motivation",
-            description: "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou..."
-          }
-        }}
+        quote={data.data}
       />
     </div>
   );
