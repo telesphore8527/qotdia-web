@@ -1,44 +1,15 @@
-import "./FavQuoteCard.css";
+import "./ExpQuoteCard.css";
 import { getCategoryColors } from "../../config/categoryVisuals";
 import { FaHeart } from "react-icons/fa";
 import { LuHeart, LuCopy, LuShare2 } from "react-icons/lu";
 
-import {
-  FiBook,
-  FiZap,
-  FiAward,
-  FiBookOpen,
-  FiCompass,
-  FiHeart,
-  FiSmile,
-  FiUsers,
-  FiTrendingUp,
-  FiUserCheck,
-  FiBriefcase,
-  FiSunrise,
-} from "react-icons/fi";
-
-const FavQuoteCard = ({ quote, isFavorite }) => {
-  const categIcons = {
-    FiBook: FiBook,
-    FiZap: FiZap,
-    FiAward: FiAward,
-    FiBookOpen: FiBookOpen,
-    FiCompass: FiCompass,
-    FiHeart: FiHeart,
-    FiSmile: FiSmile,
-    FiUsers: FiUsers,
-    FiTrendingUp: FiTrendingUp,
-    FiUserCheck: FiUserCheck,
-    FiBriefcase: FiBriefcase,
-    FiSunrise: FiSunrise,
-  };
-  const iconName = getCategoryColors(quote.category.slug).icon;
+const ExpQuoteCard = ({ quote, isFavorite }) => {
   const iconColor = getCategoryColors(quote.category.slug).text;
   const iconBg = getCategoryColors(quote.category.slug).bg;
-  const Icon = categIcons[iconName];
 
   return (
+    // <div className='expquotecard'></div>
+
     <article className="favquotecard">
       <header className="favquotecard-header">
         <div
@@ -48,24 +19,26 @@ const FavQuoteCard = ({ quote, isFavorite }) => {
             background: iconBg,
           }}
         >
-          {<Icon />}
+          <div
+            className="dot"
+            style={{
+              width: "10px",
+              height: "10px",
+              background: iconColor,
+              borderRadius: "50%",
+            }}
+          ></div>
           {quote.category.name}
         </div>
         <div className="favquotecard-right">
-          <span> {quote.date ? quote.date : ""} </span>
-          <span className="icon">
+          <p className="favquotecard-icon" style={{ fontSize: "3rem" }}>
             {" "}
-            {isFavorite ? (
-              <FaHeart size={26} color="red" />
-            ) : (
-              <LuHeart size={26} />
-            )}{" "}
-          </span>
+            <span>“</span>{" "}
+          </p>
         </div>
       </header>
 
       <section className="favquotecard-body">
-        <p className="favquotecard-icon"> “ </p>
         <p>{quote.content}</p>
       </section>
 
@@ -86,8 +59,17 @@ const FavQuoteCard = ({ quote, isFavorite }) => {
           <div className="copy icon">
             <LuCopy></LuCopy>
           </div>
+
           <div className="share icon">
             <LuShare2></LuShare2>
+          </div>
+          <div className="like icon">
+            {" "}
+            {isFavorite ? (
+              <FaHeart size={22} color="red" />
+            ) : (
+              <LuHeart size={22} />
+            )}{" "}
           </div>
         </div>
       </section>
@@ -95,4 +77,4 @@ const FavQuoteCard = ({ quote, isFavorite }) => {
   );
 };
 
-export default FavQuoteCard;
+export default ExpQuoteCard;

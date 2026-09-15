@@ -110,74 +110,74 @@ export function getCategoryVisual(slug) {
 
 export const CATEGORY_COLORS = {
   motivation: {
-    bg: 'rgba(108, 92, 231, 0.5)',
+    bg: 'rgba(108, 92, 231, 0.3)',
     text: '#6C5CE7',
-    icon: 'LuBook'
+    icon: 'FiZap'
   },
   success: {
-    bg: 'rgba(253, 203, 110, 0.5)',
+    bg: 'rgba(253, 203, 110, 0.3)',
     text: '#FDCB6E',
-    icon: 'LuBook'
+    icon: 'FiAward'
   },
   perseverance: {
-    bg: 'rgba(72, 52, 212, 0.5)',
+    bg: 'rgba(72, 52, 212, 0.3)',
     text: '#4834D4',
-    icon: 'LuBook'
+    icon: 'FiTrendingUp'
   },
   career: {
-    bg: 'rgba(52, 73, 94, 0.5)',
+    bg: 'rgba(52, 73, 94, 0.3)',
     text: '#34495E',
-    icon: 'LuBook'
+    icon: 'FiBriefcase'
   },
 
   wisdom: {
-    bg: 'rgba(0, 184, 148, 0.5)',
+    bg: 'rgba(0, 184, 148, 0.3)',
     text: '#00B894',
-    icon: 'LuBook'
+    icon: 'FiBookOpen'
   },
   philosophy: {
-    bg: 'rgba(75, 101, 132, 0.5)',
+    bg: 'rgba(75, 101, 132, 0.3)',
     text: '#4B6584',
-    icon: 'LuBook'
+    icon: 'FiCompass'
   },
   learning: {
-    bg: 'rgba(0, 206, 201, 0.5)',
+    bg: 'rgba(0, 206, 201, 0.3)',
     text: '#00CEC9',
-    icon: 'LuBook'
+    icon: 'FiBook'
   },
   hope: {
-    bg: 'rgba(116, 185, 255, 0.5)',
+    bg: 'rgba(116, 185, 255, 0.3)',
     text: '#74B9FF',
-    icon: 'LuBook'
+    icon: 'FiSunrise'
   },
 
   love: {
-    bg: 'rgba(253, 121, 168, 0.5)',
+    bg: 'rgba(253, 121, 168, 0.3)',
     text: '#FD79A8',
-    icon: 'LuBook'
+    icon: 'FiHeart'
   },
   relationships: {
-    bg: 'rgba(250, 177, 160, 0.5)',
+    bg: 'rgba(250, 177, 160, 0.3)',
     text: '#FAB1A0',
-    icon: 'LuBook'
+    icon: 'FiUsers'
   },
   happiness: {
-    bg: 'rgba(255, 217, 61, 0.5)',
+    bg: 'rgba(255, 217, 61, 0.3)',
     text: '#FFD93D',
-    icon: 'LuBook'
+    icon: 'FiSmile'
   },
 
   'self-confidence': {
-    bg: 'rgba(162, 155, 254, 0.5)',
+    bg: 'rgba(162, 155, 254, 0.3)',
     text: '#A29BFE',
-    icon: 'LuBook'
+    icon: 'FiUserCheck'
   },
 };
 
 export const DEFAULT_COLORS = {
-  bg: 'rgba(45, 52, 54, 0.5)',
+  bg: 'rgba(45, 52, 54, 0.3)',
   text: '#2D3436',
-  icon: 'LuBook'
+  icon: 'FiBook'
 };
 
 
