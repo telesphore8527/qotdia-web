@@ -6,7 +6,7 @@ import { useUiStore } from "./store/useUiStore";
 import { useEffect } from "react";
 
 export default function App() {
-  const { theme, setTheme } = useUiStore();
+  const { theme } = useUiStore();
 
   useEffect(() => {
     // setTheme("light");

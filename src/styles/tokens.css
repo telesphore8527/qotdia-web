@@ -7,7 +7,7 @@
   --color-text: #2d3436;
   --color-text-secondary: #636e72;
   --color-bg: #ffffff;
-  --color-surface: #f5f6fa;
+  /* --color-surface: #f5f6fa; */
   --color-border: #e8e8e8;
 
   --radius-sm: 8px;
@@ -22,4 +22,5 @@
   --color-bg: #1e1e2e;
   --color-surface: #2a2a3c;
   --color-border: #3a3a4c;
+  --shadow-card: 0 5px 5px 3px rgba(255, 255, 255, 0.12)
 }

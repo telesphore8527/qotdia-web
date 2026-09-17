@@ -1,0 +1,70 @@
+.homeloading {
+    background: var(--color-bg);
+}
+.homeloading p{
+    color: var(--color-text-secondary);
+}
+.homeloading-row.first-row{
+    background: var(--color-surface);
+    width: 150px;
+}
+.homeloading-row{
+    background-color: var(--color-border);
+    width: 300px;
+    height: 1.5rem;
+    border-radius: 1rem;
+    margin: .7rem 0;
+}
+
+.homeloading-card{
+    background: var(--color-bg);
+    padding: 1.5rem;
+    /* box-shadow: 0 0 30px 8px rgba(0, 0, 0, 0.08); */
+    border-radius: 2rem;
+    margin: 2rem 0;
+}
+
+.homeloading-sec1, .homeloading-sec3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.homeloading-sec1 .homeloading-row{
+    height: 1.3rem;
+}
+.homeloading-sec1 .left{
+    width: 150px;
+}
+.homeloading-sec1 .right{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.homeloading-sec2 .homeloading-row {
+    /* margin: 1rem auto; */
+    width: 100%;
+    height: 1rem;
+}
+.homeloading-row.row3{
+    width: 60%;
+}
+.homeloading-row.row4{
+    width: 45%;
+    margin: 3rem 0;
+}
+
+.homeloading-sec3 .left{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.homeloading-sec3 .right{
+    width: 110px;
+    height: 40px;
+    border-radius: 2rem;
+}
+
+.homeloading-card.categ{
+    border-radius: .8rem;
+}

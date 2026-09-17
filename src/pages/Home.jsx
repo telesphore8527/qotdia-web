@@ -1,6 +1,7 @@
 /** @type {NextPage} */
 import DailyQuoteCard from "../components/DailyQuoteCard/DailyQuoteCard";
-import { useQuoteOfToday } from "../hooks/useQuoteOfToday";
+import { useDailyQuote } from "../hooks/useDailyQuote";
+import { HomeLoading } from "../components/LoadingState/LoadingState";
 
 
 
@@ -8,10 +9,11 @@ import { useQuoteOfToday } from "../hooks/useQuoteOfToday";
 
 const Home = () => {
 
-  const {data, isLoading, isError} = useQuoteOfToday();
+  const {data, isLoading, isError} = useDailyQuote();
 
-if(isLoading) return <p>is isLoading...</p>
-if(isError) return <p>Error X</p>
+if(isLoading) 
+  return (<HomeLoading />)
+if(isError) return <p>Error </p>
 
   return (
     <div>
