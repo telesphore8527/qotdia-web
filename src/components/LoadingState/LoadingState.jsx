@@ -1,6 +1,5 @@
 import "./LoadingState.css";
 import { useUiStore } from "../../store/useUiStore";
-
 export function HomeLoading() {
   const { theme } = useUiStore();
 
@@ -35,13 +34,74 @@ export function HomeLoading() {
         </div>
       </section>
 
-	  <section className="homeloading-card categ" style={{
+      <section
+        className="homeloading-card categ"
+        style={{
+          boxShadow:
+            theme === "dark"
+              ? " 0 0 30px 8px rgba(255, 255, 255, 0.08)"
+              : " 0 0 30px 8px rgba(0, 0, 0, 0.08)",
+        }}
+      ></section>
+    </div>
+  );
+}
+
+
+
+export function ExploreLoading({ cardNumber = 3, noHeader }) {
+   const { theme } = useUiStore();
+  const cards = Array.from({ length: cardNumber });
+
+  return (
+    <section className="exploreloading">
+      {
+        !noHeader ? (
+          <header className="expload-header">
+        <section className="expload-search"></section>
+
+        <section className="expload-filter">
+          <div className="expload-column"></div>
+          <div className="expload-column"></div>
+          <div className="expload-column"></div>
+        </section>
+      </header>
+        ) : ""
+      }
+
+      <section className="expload-container">
+        {cards.map((_, id) => {
+          return <article key={id} className="expload-card" style={{
           boxShadow:
             theme === "dark"
               ? " 0 0 30px 8px rgba(255, 255, 255, 0.08)"
               : " 0 0 30px 8px rgba(0, 0, 0, 0.08)",
         }}>
-	  </section>
-    </div>
+            <div className="expload-row"></div>
+            <div className="expload-row"></div>
+            <div className="expload-row"></div>
+            <div className="expload-row"></div>
+            <div className="expload-row"></div>
+          </article>;
+        })}
+      </section>
+    </section>
   );
+}
+
+
+
+
+
+
+
+export function ExploreLoadingMore(){
+
+  return (
+    <section className="exploreloadingmore">
+      <div className="spinner-section">
+        <div className="spinner"></div> loading more quotes...
+      </div>
+    </section>
+  )
 }
