@@ -19,7 +19,7 @@ const Header = () => {
         </div>
         <div>
           <div className="brand-name">Qotdia</div>
-          <span className="sub-brand">ta dose quot d'inspi</span>
+          <span className="sub-brand">Local-First Feed</span>
         </div>
       </a>
       <h1 className="header-title">{ PAGE_TITLE[pathname] }</h1>

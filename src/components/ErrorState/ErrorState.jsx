@@ -1,11 +1,64 @@
-import './ErrorState.css';
+import "./ErrorState.css";
+import { FaExclamation, FaExclamationTriangle } from "react-icons/fa";
 
 
-export function HomeError(){
+export function ErrorCard({
+  showCard,
+  icon,
+  title,
+  subTitle,
+  buttonValue,
+  onClick,
+}) {
 
-	return (
-		<section className="homeerror">
-			HomeError works...
-		</section>
-	)
+
+  return (
+    <section className="errorcard-section">
+      <section className={showCard ? "errorcard showcard" : "errorcard"}>
+        <div className="errorcard-logo">{icon}</div>
+        <h2 className="errorcard-title">{title}</h2>
+        <p className="errorcard-subtitle">{subTitle}</p>
+        <button className="errorcard-button" onClick={onClick}>
+          {buttonValue}
+        </button>
+      </section>
+    </section>
+  );
+}
+
+export function HomeError({ refetch }) {
+
+
+  return (
+    <section className="homeerror">
+      <header>Daily quote</header>
+      <ErrorCard
+        showCard
+        icon={<FaExclamation />}
+        title="Quote unavailable !!"
+        subTitle="Check your network connection to load the daily Quote."
+        buttonValue="Retry"
+        onClick={() => refetch()}
+      />
+    </section>
+  );
+}
+
+export function ExploreError({ refetch, search }) {
+
+
+
+  return (
+    <section className="exploreerror">
+      <header className="exploreerror-search">{search} </header>
+
+      <ErrorCard
+        icon={<FaExclamationTriangle />}
+        title="Error while fetching quotes !!"
+        subTitle="An error occured at server side."
+        buttonValue="Retry"
+        onClick={() => refetch()}
+      />
+    </section>
+  );
 }
