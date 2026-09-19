@@ -1,4 +1,5 @@
 /** @type {NextPage} */
+import { ExploreEmpty, FavoritesEmpty } from "../components/EmptyState/EmptyState";
 import ExpQuoteCard from "../components/ExpQuoteCard/ExpQuoteCard";
 import { ExploreLoading, ExploreLoadingMore } from "../components/LoadingState/LoadingState";
 
@@ -58,10 +59,13 @@ const Explorer = () => {
     // </section>
 
     
-    <section>
-      <ExploreLoading noHeader cardNumber={3} />
-      <ExploreLoadingMore />
-    </section>
+    // <section>
+    //   <ExploreLoading noHeader cardNumber={3} />
+    //   <ExploreLoadingMore />
+    // </section>
+
+    <ExploreEmpty />
+
   );
 };
 

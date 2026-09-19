@@ -26,7 +26,7 @@ export function ErrorCard({
   );
 }
 
-export function HomeError({ refetch }) {
+export function HomeError({ onClick }) {
 
 
   return (
@@ -38,13 +38,13 @@ export function HomeError({ refetch }) {
         title="Quote unavailable !!"
         subTitle="Check your network connection to load the daily Quote."
         buttonValue="Retry"
-        onClick={() => refetch()}
+        onClick={() => onClick()}
       />
     </section>
   );
 }
 
-export function ExploreError({ refetch, search }) {
+export function ExploreError({ onClick, search }) {
 
 
 
@@ -57,7 +57,7 @@ export function ExploreError({ refetch, search }) {
         title="Error while fetching quotes !!"
         subTitle="An error occured at server side."
         buttonValue="Retry"
-        onClick={() => refetch()}
+        onClick={() => onClick()}
       />
     </section>
   );

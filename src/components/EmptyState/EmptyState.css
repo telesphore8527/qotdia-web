@@ -1,20 +1,22 @@
-.errorcard-section {
+
+.emptycard-section {
   background: var(--color-bg);
 }
 
-.errorcard{
+.emptycard{
+    
     padding: 2rem;
     border-radius: 1rem;
     margin: 2rem .5rem;
     text-align: center;
 }
-.errorcard.showcard{
+/* .emptycard.showcard{
     box-shadow: var(--shadow-card);
     background: var(--color-surface);
-}
-.errorcard-logo{
-    background-color: rgba(245, 145, 145, 0.27);
-    color: var(--color-accent);
+} */
+.emptycard-logo{
+    background-color:var(--color-primary-light);
+    color: var(--color-primary);
     width: fit-content;
     margin: auto;
     padding: 1.8rem;
@@ -22,14 +24,14 @@
     font-size: 1.8rem;
     display: flex;
 }
-.errorcard-title{
+.emptycard-title{
     margin: 1rem 0;
 }
-.errorcard-subtitle{
+.emptycard-subtitle{
     color: var(--color-text-secondary);
     text-align: center;
 }
-.errorcard-button{
+.emptycard-button{
     margin: 1rem auto;
     padding: 1rem 2rem;
     border-radius: 2rem;
@@ -38,18 +40,16 @@
     border: 2px solid var(--color-primary);
     color: var(--color-primary);
 }
-.errorcard-button:hover{
+.emptycard-button:hover{
    color: white;
    background: var(--color-primary);
 }
 
-
-
-
-.exploreerror-search{
+.exploreempty-search{
     background: var(--color-surface);
     padding: 1.3rem;
     border-radius: var(--radius-sm);
     color: var(--color-text-secondary);
     margin-top: 1.2rem;
+    border: 2px solid var(--color-primary-light);
 }

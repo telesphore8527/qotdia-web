@@ -8,7 +8,7 @@ const Home = () => {
   const { data, isLoading, isError, refetch } = useDailyQuote();
 
   if (isLoading) return <HomeLoading />;
-  if (isError) return <HomeError refetch={refetch} />;
+  if (isError) return <HomeError onClick={refetch} />;
 
   return (
     <div>

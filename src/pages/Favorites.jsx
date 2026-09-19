@@ -1,12 +1,13 @@
 /** @type {NextPage} */
 import FavQuoteCard from "../components/FavQuoteCard/FavQuoteCard";
+import { FavoritesEmpty } from "../components/EmptyState/EmptyState";
 
 const Favorites = () => {
   return (
     <section>
-      <h1>Favorites</h1>
+      <h1>My Favorites</h1>
 
-      <section className="favquotecard-container">
+      {/* <section className="favquotecard-container">
         <FavQuoteCard
           quote={{
             id: 20,
@@ -187,7 +188,9 @@ const Favorites = () => {
             },
           }}
         />
-      </section>
+      </section> */}
+
+      <FavoritesEmpty />
     </section>
   );
 };
