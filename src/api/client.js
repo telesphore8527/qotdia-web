@@ -10,7 +10,15 @@ async function request(endpoint, options = {}) {
   });
 
   if (!response.ok) {
-    throw new Error(`Erreur api: ${response.status}`);
+    let body = null;
+    try {
+      body = response.json();
+    } catch {}
+    const error = new Error(body?.message || `Api error ${response.status}`);
+
+    error.status = response.status;
+    error.body = body;
+    throw error;
   }
 
   return response.json();

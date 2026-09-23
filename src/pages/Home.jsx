@@ -6,7 +6,7 @@ import { HomeError } from "../components/ErrorState/ErrorState";
 
 const Home = () => {
   const { data, isLoading, isError, refetch } = useDailyQuote();
-
+  // gerer le status depuis la premiere page
   if (isLoading) return <HomeLoading />;
   if (isError) return <HomeError onClick={refetch} />;
 

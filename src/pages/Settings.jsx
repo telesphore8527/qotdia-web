@@ -42,7 +42,7 @@ const Settings = () => {
     <div>
       {/* Daily notif*/}
 
-      <SectionLabel>Notificaitons</SectionLabel>
+      <SectionLabel>Notifications</SectionLabel>
       <div className="setting-section">
         <SettingRow
           title="Daily Notification"
