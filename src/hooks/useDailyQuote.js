@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchDailyQuote } from "../api/quoteOfToday";
+import { getDailyQuote } from "../api/dailyQuote";
 
 export const useDailyQuote = () => {
   return new useQuery({
     queryKey: ["quotes", "daily"],
-    queryFn: () => fetchDailyQuote(),
+    queryFn: () => getDailyQuote(),
   });
 };

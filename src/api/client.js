@@ -13,7 +13,7 @@ async function request(endpoint, options = {}) {
     let body = null;
     try {
       body = response.json();
-    } catch {}
+    } catch {/* nothing to do*/}
     const error = new Error(body?.message || `Api error ${response.status}`);
 
     error.status = response.status;

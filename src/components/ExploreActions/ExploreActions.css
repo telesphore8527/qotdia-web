@@ -1,0 +1,65 @@
+s.exploreactions {
+  
+}
+
+.ExpSearchingBox{
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    padding: .8rem;
+    gap: .5rem;
+    box-shadow: var(--shadow-card);
+}
+.ExpSearchingBox input{
+    width: 100%;
+    padding-left: .3rem;
+    border-radius: inherit;
+    background: none;
+    outline: none;
+    border: none;
+    color: inherit;
+}
+.ExpSearchingBox input::-webkit-search-cancel-button{
+    cursor: pointer;
+    margin-left: .3rem;
+}
+
+
+
+.ExpCategContainer{
+    position: relative;
+}
+
+.ExpCategContainer::before{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(to right, white, transparent 4% 96%, white );
+}
+.ExpCategBox{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0;
+    padding: .5rem;
+}
+
+.ExpCategBox li{
+    white-space: nowrap;box-shadow:var(--shadow-card);
+    padding: .5rem .7rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+}
+.ExpCategBox li:hover, .ExpCategBox li.active{
+    background-color: var(--color-primary);
+    color: white;
+}
+.ExpCategBox li:hover *, .ExpCategBox li.active *{
+    color: white;
+}

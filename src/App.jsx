@@ -9,7 +9,6 @@ export default function App() {
   const { theme } = useUiStore();
 
   useEffect(() => {
-    // setTheme("light");
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 

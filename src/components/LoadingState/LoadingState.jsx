@@ -6,7 +6,12 @@ export function HomeLoading() {
   return (
     <div className="homeloading">
       <p>DailyQuote</p>
-      <div className="homeloading-row first-row "></div>
+      <div className="homeloading-row first-row "  style={{
+          boxShadow:
+            theme === "dark"
+              ? " 0 0 30px 8px rgba(255, 255, 255, 0.08)"
+              : " 0 0 30px 8px rgba(0, 0, 0, 0.08)",
+        }}></div>
       <section
         className="homeloading-card"
         style={{

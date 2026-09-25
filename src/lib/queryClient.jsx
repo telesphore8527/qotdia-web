@@ -6,9 +6,9 @@ export const queryClient = new QueryClient({
       staleTime: 5 * 60 * 1000,
       retry: (failureCount, error)=>{
         if(error.status == 404){
-          return 0
+          return false
         }
-        return failureCount < 3
+        return failureCount < 2
       },
       refetchOnWindowFocus: false,
     },

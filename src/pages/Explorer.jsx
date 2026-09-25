@@ -1,10 +1,24 @@
 /** @type {NextPage} */
-import { ExploreEmpty, FavoritesEmpty } from "../components/EmptyState/EmptyState";
+import {
+  ExploreEmpty,
+  FavoritesEmpty,
+} from "../components/EmptyState/EmptyState";
 import ExpQuoteCard from "../components/ExpQuoteCard/ExpQuoteCard";
-import { ExploreLoading, ExploreLoadingMore } from "../components/LoadingState/LoadingState";
-
+import {
+  ExploreLoading,
+  ExploreLoadingMore,
+} from "../components/LoadingState/LoadingState";
+import ExploreActions from "../components/ExploreActions/ExploreActions";
+import { useCategories } from "../hooks/useCategories";
 
 const Explorer = () => {
+  const {
+    data: categData,
+    loading:categLoading,
+    error:categError
+  } = useCategories()
+
+
   return (
     // <section>
     //   <h1>Explore</h1>
@@ -58,14 +72,13 @@ const Explorer = () => {
     //   </section>
     // </section>
 
-    
-    // <section>
-    //   <ExploreLoading noHeader cardNumber={3} />
-    //   <ExploreLoadingMore />
-    // </section>
+    <section>
+      <ExploreActions categories={categData ? categData.data : []} />
+      <ExploreLoading noHeader cardNumber={3} />
+      <ExploreLoadingMore />
+    </section>
 
-    <ExploreEmpty />
-
+    // <ExploreEmpty />
   );
 };
 

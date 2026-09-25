@@ -1,22 +1,3 @@
-/**
- * src/config/categoryVisuals.js
- * ------------------------------------------------------------------
- * SOURCE DE VÉRITÉ UNIQUE pour l'identité visuelle de chaque catégorie.
- *
- * Pourquoi ce fichier existe séparément :
- * - Si demain tu changes une couleur, tu touches UNE ligne ici,
- *   jamais un composant React.
- * - Ce fichier ne contient AUCUNE logique, que des données statiques.
- *   Ça le rend trivial à tester, à faire relire, ou même à générer
- *   plus tard depuis ta table `categories` en base si tu automatises.
- *
- * Structure de chaque entrée :
- * - shape    : la famille de silhouette à utiliser (doit correspondre
- *              à une des fonctions génératrices dans backgroundGenerator.js)
- * - gradient : [couleur du haut du ciel, couleur du bas / horizon]
- *              toujours donné dans cet ordre (haut → bas)
- */
-
 
 export const CATEGORY_VISUALS = {
   motivation: {
@@ -72,20 +53,12 @@ export const CATEGORY_VISUALS = {
   },
 };
 
-/**
- * Valeurs de secours (fallback), utilisées si jamais une catégorie
- * n'est pas encore référencée dans la map ci-dessus (ex : tu ajoutes
- * une 13e catégorie côté backend et tu oublies de mettre à jour ce
- * fichier). Ça évite un crash ou un fond blanc en prod.
- */
 export const DEFAULT_VISUAL = {
   shape: 'waves',
   gradient: ['#636E72', '#2D3436'],
 };
 
 /**
- * Petit accesseur pratique : évite de dupliquer la logique de fallback
- * partout où on a besoin de lire cette config.
  *
  * @param {string} slug - le slug de catégorie (ex: "motivation")
  * @returns {{shape: string, gradient: [string, string]}}
@@ -93,11 +66,6 @@ export const DEFAULT_VISUAL = {
 export function getCategoryVisual(slug) {
   return CATEGORY_VISUALS[slug] ?? DEFAULT_VISUAL;
 }
-
-
-
-
-
 
 
 
