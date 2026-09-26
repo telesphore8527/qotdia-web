@@ -58,7 +58,7 @@ export function FavoritesEmpty() {
 		title="No favorites to show !!"
 		subTitle="Save the your favorites quotes and see them here."
 		buttonValue="Explore quotes"
-		onClick={() => navigate("/explorer")}
+		onClick={() => navigate("/explore")}
 	  />
 	</section>
   );

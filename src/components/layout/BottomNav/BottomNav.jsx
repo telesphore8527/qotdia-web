@@ -34,10 +34,10 @@ const BottomNav = () => {
 
           <li>
             <NavLink
-              to="/explorer"
+              to="/explore"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              {pathname === "/explorer" ? (
+              {pathname === "/explore" ? (
                 <FaCompass className="nav-icon" />
               ) : (
                 <LuCompass className="nav-icon" />

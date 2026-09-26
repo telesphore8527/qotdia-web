@@ -17,6 +17,8 @@ const DailyQuoteCateg = ({ category }) => {
   );
 };
 
+
+
 const DailyQuoteCard = ({ quote }) => {
   return (
     <section className="dailyquotecard">
