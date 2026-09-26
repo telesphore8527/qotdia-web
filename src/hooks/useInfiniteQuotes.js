@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
 import { getQuotes } from "../api/quotes";
 
 export function useInfiniteQuotes({ search = "", category = "", perPage = 10 } = {}) {
@@ -23,5 +23,6 @@ export function useInfiniteQuotes({ search = "", category = "", perPage = 10 } =
 
       return undefined;
     },
+    placeholderData: keepPreviousData
   });
 }

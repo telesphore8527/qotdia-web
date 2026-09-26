@@ -1,6 +1,6 @@
 import "./ExpQuoteList.css";
 import { useInfiniteQuotes } from "../../hooks/useInfiniteQuotes";
-import { ExploreLoading } from "../LoadingState/LoadingState";
+import { ExploreLoading, ExploreLoadingMore } from "../LoadingState/LoadingState";
 import { ExploreError } from "../ErrorState/ErrorState";
 import ExpQuoteCard from "../ExpQuoteCard/ExpQuoteCard";
 import shuffle from "../../utils/shuffle";
@@ -40,6 +40,24 @@ const ExpQuoteList = ({ search, category }) => {
           />
         );
       })}
+	  
+	  {
+		hasNextPage && !isFetchingNextPage && <div className="sentinel" style={{cursor: "pointer"}} onClick={fetchNextPage}>I'm a sentinel (temporally visible (●'◡'●) ). Click to fetch nex page</div>
+	  }
+
+	  {
+		hasNextPage && isFetchingNextPage && 
+		<div>
+			<ExploreLoading noHeader cardNumber={1} />
+			<ExploreLoadingMore />
+		</div>
+	  }
+
+	  {
+		!hasNextPage && <p style={{textAlign: "center", color: "var(--color-text-secondary)"}}>You reached the end of the list !! </p>
+	  }
+
+
     </section>
   );
 };
