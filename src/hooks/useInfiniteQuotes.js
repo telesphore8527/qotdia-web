@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getQuotes } from "../api/quotes";
 
-export function useQuotes({ search = "", category = "", perPage = 10 } = {}) {
+export function useInfiniteQuotes({ search = "", category = "", perPage = 10 } = {}) {
   return useInfiniteQuery({
     queryKey: [
       "quotes",

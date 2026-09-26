@@ -44,7 +44,7 @@ export function HomeError({ onClick }) {
   );
 }
 
-export function ExploreError({ onClick, search }) {
+export function ExploreError({ onClick, search, message }) {
 
 
 
@@ -55,7 +55,7 @@ export function ExploreError({ onClick, search }) {
       <ErrorCard
         icon={<FaExclamationTriangle />}
         title="Error while fetching quotes !!"
-        subTitle="An error occured at server side."
+        subTitle={message ? message :"An error occured at server side."}
         buttonValue="Retry"
         onClick={() => onClick()}
       />
