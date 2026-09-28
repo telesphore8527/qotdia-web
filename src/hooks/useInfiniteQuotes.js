@@ -1,7 +1,9 @@
 import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
 import { getQuotes } from "../api/quotes";
+import { useState } from "react";
 
-export function useInfiniteQuotes({ search = "", category = "", perPage = 10 } = {}) {
+export function useInfiniteQuotes({ search = "", category = "", perPage = 10, sort="feed", } = {}) {
+  const [seed] = useState(()=>crypto.randomUUID())
   return useInfiniteQuery({
     queryKey: [
       "quotes",
@@ -9,13 +11,15 @@ export function useInfiniteQuotes({ search = "", category = "", perPage = 10 } =
         search,
         category,
         perPage,
+        sort,
+        seed
       },
     ],
     queryFn: ({ pageParam = 1 }) =>
-      getQuotes({ page: pageParam, perPage, search, category }),
-    getNextPageParam: (lastPage) => {
-      const currentPage = lastPage.meta.current_page;
-      const lastPageNumber = lastPage.meta.last_page;
+      getQuotes({ page: pageParam, perPage, search, category, sort, seed }),
+    getNextPageParam: ({meta}) => {
+      const currentPage = meta.current_page;
+      const lastPageNumber = meta.last_page;
 
       if (currentPage < lastPageNumber) {
         return currentPage + 1;

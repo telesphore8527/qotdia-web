@@ -6,10 +6,14 @@ export async function getQuotes({
   perPage = 10,
   search = "",
   category = "",
+  sort= "feed",
+  seed
 } = {}) {
   const params = new URLSearchParams({
     page: String(page),
     per_page: String(perPage),
+    sort: String(sort),
+    seed: String(seed)
   });
 
   if (search) {

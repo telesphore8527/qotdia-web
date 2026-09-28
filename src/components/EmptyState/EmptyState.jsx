@@ -27,19 +27,19 @@ export function EmptyCard({
 }
 
 
-export function ExploreEmpty({ onClick, search }) {
+export function ExploreEmpty({ onClick }) {
 
 
   return (
 	<section className="exploreempty">
-	  <header className="exploreempty-search">{search} </header>
+	  {/* <header className="exploreempty-search">{search} </header> */}
 
 	  <EmptyCard
 		icon={<FaSearch />}
 		title="No result !!"
 		subTitle="Try another keyword, author or theme."
 		buttonValue="Reset filters"
-		onClick={() => onClick()}
+		onClick={onClick()}
 	  />
 	</section>
   );

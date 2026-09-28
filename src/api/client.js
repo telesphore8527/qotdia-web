@@ -14,7 +14,7 @@ async function request(endpoint, options = {}) {
     try {
       body = response.json();
     } catch {/* nothing to do*/}
-    const error = new Error(body?.message || `Api error ${response.status}`);
+    const error = new Error(body?.message);
 
     error.status = response.status;
     error.body = body;

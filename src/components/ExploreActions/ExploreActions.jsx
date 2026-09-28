@@ -19,8 +19,9 @@ import {
 import { getCategoryColors } from "../../config/categoryVisuals";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { ExploreLoading } from "../LoadingState/LoadingState";
+import { useEffect, useState } from "react";
 
-const ExploreActions = ({ category, search, setCategory, setSearch }) => {
+const ExploreActions = ({ setCategory, setSearch }) => {
   const categIcons = {
     FiBook: FiBook,
     FiZap: FiZap,
@@ -38,9 +39,26 @@ const ExploreActions = ({ category, search, setCategory, setSearch }) => {
   };
 
   const { data, isLoading, isError, refetch } = useCategories();
+  const [activeId, setActiveId] = useState(-1);
+
+  const [localSearch, setLocalSearch] = useState("")
+
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      setSearch(localSearch)
+    }, 400)
+
+    return ()=> clearTimeout(timer)
+
+  },[localSearch, setSearch])
 
   const handleSearch = (e) => {
-    setSearch(e.target.value);
+    setLocalSearch(e.target.value);
+  };
+
+  const handleCategory = (category = {}) => {
+    setCategory(category? category.slug : "");
+    setActiveId(category.id || -1);
   };
 
   if (isLoading) return <ExploreLoading cardNumber={0} />;
@@ -52,7 +70,7 @@ const ExploreActions = ({ category, search, setCategory, setSearch }) => {
           <FaSearch />{" "}
           <input
             type="search"
-            value={search}
+            value={localSearch}
             onChange={handleSearch}
             placeholder="Search quotes, authors, themes..."
           />
@@ -62,7 +80,7 @@ const ExploreActions = ({ category, search, setCategory, setSearch }) => {
       <div className="ExpCategContainer">
         <ul className="ExpCategBox">
           {!isError && (
-            <li>
+            <li className={activeId === -1 ? "active" : ""} onClick={() => handleCategory()}>
               <BsFillGrid3X3GapFill /> All
             </li>
           )}
@@ -70,7 +88,12 @@ const ExploreActions = ({ category, search, setCategory, setSearch }) => {
             data.data.map((category) => {
               const Icon = categIcons[getCategoryColors(category.slug).icon];
               return (
-                <li key={category.id} title={category.description}>
+                <li
+                  key={category.id}
+                  className={activeId === category.id ? "active" : ""}
+                  title={category.description}
+                  onClick={() => handleCategory(category)}
+                >
                   <Icon color={getCategoryColors(category.slug).text} />
                   {category.name}
                 </li>
