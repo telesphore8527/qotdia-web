@@ -1,4 +1,5 @@
 import ExploreActions from "../components/ExploreActions/ExploreActions";
+import "../styles/explore.css"
 
 import { useState } from "react";
 import ExpQuoteList from "../components/ExpQuoteList/ExpQuoteList";
@@ -10,7 +11,10 @@ const Explore = () => {
 
   return (
     <section>
-      <h3>Explore </h3>
+      <div className="exp-title">
+        <h2>Explore Quotes</h2>{" "}
+        <div className="exp-number">12,450+</div>{" "}
+      </div>
       <ExploreActions
       key={onreset}
         search={search}

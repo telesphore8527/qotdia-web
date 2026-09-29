@@ -25,7 +25,9 @@ function SectionLabel({ children }) {
   );
 }
 
-function SettingRow({ logo, title, subtitle, right, onClick, children }) {
+export function SettingRow({ logo, title, subtitle, right, onClick, children }) {
+
+
   return (
     <div style={{cursor: onClick? "pointer" : "default"}}>
       {!children ? (

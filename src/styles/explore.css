@@ -1,0 +1,13 @@
+.exp-title{
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    margin-bottom: 1.5rem;
+}
+.exp-number{
+    background: var(--color-primary-transparent);
+    
+    font-size: .8rem;
+    border-radius: var(--radius-lg);
+    padding: 0 .5rem;
+}
