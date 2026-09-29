@@ -1,6 +1,9 @@
 .setting-label-section {
   color: var(--color-text-secondary);
   padding: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.02rem;
+  text-transform: uppercase;
   
 }
 
@@ -30,6 +33,18 @@
   /* cursor: default; */
   color: var(--color-text);
   background: var(--color-surface);
+}
+
+.settingRow-left-container{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.settingRow-left-container svg{
+  font-size: 2rem;
+  
+  padding: .4rem;
+  border-radius: 50%;
 }
 p {
   text-align: left;
@@ -72,16 +87,16 @@ p {
 .setting-checkbox::after {
   position: absolute;
   content: "";
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 18px;
   border-radius: 50%;
   background-color: white;
   transition: 0.5s;
-  top: 1px;
-  left: 1px;
+  top: 2px;
+  left: 4px;
 }
 .setting-checkbox:checked::after {
-  transform: translateX(100%);
+  transform: translateX(calc(95% - 2px));
 }
 
 /* input[type='raio'] */
@@ -91,4 +106,27 @@ p {
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+
+.setting-section input[type="time"]{
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid var(--color-surface);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--color-bg);
+  font-size: 14px;
+  font-family: inherit;
+  outline: 2px solid var(--color-text-secondary);
+  color: var(--color-primary);
+}
+.setting-section input[type="time"]:focus{
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-card);
+}
+.setting-section input[type="time"]::-webkit-calendar-picker-indicator{
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 1;
 }

@@ -3,7 +3,19 @@ import { useState } from "react";
 import { useUiStore } from "../store/useUiStore";
 import "../styles/Settings.css";
 import { FaChevronRight } from "react-icons/fa6";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaDotCircle } from "react-icons/fa";
+import {
+  LuShieldCheck,
+  LuClock8,
+  LuBellRing,
+  LuSun,
+  LuMoon,
+  LuBadgeInfo,
+  LuGitCommitHorizontal,
+  LuLock,
+  LuDot,
+} from "react-icons/lu";
+import { MdGavel } from "react-icons/md";
 
 function SectionLabel({ children }) {
   return (
@@ -13,14 +25,18 @@ function SectionLabel({ children }) {
   );
 }
 
-function SettingRow({ title, subtitle, right, onClick, children }) {
+function SettingRow({ logo, title, subtitle, right, onClick, children }) {
   return (
-    <div>
+    <div style={{cursor: onClick? "pointer" : "default"}}>
       {!children ? (
         <button className="settingRow" onClick={onClick}>
-          <div>
-            <p className="settingRow-title"> {title} </p>
-            <p className="settingRow-subtitle"> {subtitle} </p>
+          <div className="settingRow-left-container">
+            <div>{logo ? logo : ""}</div>
+
+            <div>
+              <p className="settingRow-title"> {title} </p>
+              <p className="settingRow-subtitle"> {subtitle} </p>
+            </div>
           </div>
           {right}
         </button>
@@ -37,16 +53,23 @@ const Settings = () => {
   const [time, setTime] = useState("07:00");
   const [editingTime, setEditingTime] = useState(false);
 
-
   return (
     <div>
       {/* Daily notif*/}
 
-      <SectionLabel>Notifications</SectionLabel>
+      <SectionLabel>Daily Inspiration</SectionLabel>
       <div className="setting-section">
         <SettingRow
-          title="Daily Notification"
-          subtitle="get your quote every day"
+          logo={
+            <LuBellRing
+              style={{
+                color: "var(--color-primary)",
+                background: "var(--color-primary-transparent)",
+              }}
+            />
+          }
+          title="Daily Quote Notification"
+          subtitle="Stored in local browser..."
           right={
             <input
               type="checkbox"
@@ -62,7 +85,16 @@ const Settings = () => {
         {/* Time of notif */}
 
         <SettingRow
-          title="Time of notification"
+          logo={
+            <LuClock8
+              style={{
+                color: "var(--color-primary)",
+                background: "var(--color-primary-transparent)",
+              }}
+            />
+          }
+          title="Notification time"
+          subtitle="Morning quiet window"
           right={
             <p
               style={{
@@ -70,6 +102,9 @@ const Settings = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: ".5rem",
+                background: "var(--color-primary-transparent)",
+                border: "8px solid var(--color-primary-transparent)",
+                borderRadius: ".5rem",
               }}
             >
               {notifsOn ? time : "-- : --"}
@@ -82,7 +117,7 @@ const Settings = () => {
         {notifsOn && editingTime && (
           <SettingRow>
             {" "}
-            <p className="setting-time-zone">
+            <p className="setting-time-zone" style={{background: "var(--color-surface)"}}>
               <input
                 type="time"
                 value={time}
@@ -91,32 +126,64 @@ const Settings = () => {
             </p>
           </SettingRow>
         )}
+        <SettingRow>
+          <p
+            style={{
+              padding: "1rem",
+              fontSize: ".8rem",
+              border: "12px solid var(--color-surface)",
+              borderTop: "none",
+              display: "flex",
+              gap: ".8rem",
+              color: "var(--color-text-secondary)",
+            }}
+          >
+            <LuShieldCheck
+              style={{
+                color: "var(--color-secondary)",
+                fontSize: "2rem",
+              }}
+            />
+            Local device notification without server dependency. Runs strictly
+            inside this browser instance.
+          </p>
+        </SettingRow>
       </div>
 
       {/* Theme */}
 
-      <SectionLabel> Theme</SectionLabel>
+      <SectionLabel> APPEARANCE</SectionLabel>
       <div className="setting-section">
         <SettingRow
           title="Change
            theme"
           subtitle=""
           right={
-            <p style={{ color: "var(--color-text-secondary)" }}>
+            <div
+              style={{
+                color: "var(--color-text-secondary)",
+                display: "flex",
+                alignItems: "center",
+                gap: ".5rem",
+              }}
+            >
+              <div style={{ marginTop: ".4rem", fontSize: "1rem" }}>
+                {theme === "dark" ? <LuSun /> : <LuMoon />}
+              </div>
               {theme} <FaChevronRight />
-            </p>
+            </div>
           }
-          onClick={()=> setTheme(theme === "light" ? "dark" : "light")}
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         />
       </div>
 
       {/* About */}
 
-      <SectionLabel>About</SectionLabel>
+      <SectionLabel>Aplication Info</SectionLabel>
       <div className="setting-section">
         <SettingRow
           title="Running offline"
-          subtitle="data are available"
+          subtitle="data are available offline"
           right={
             <input
               type="radio"
@@ -131,15 +198,56 @@ const Settings = () => {
         <hr className="setting-hr" />
 
         <SettingRow
+          logo={<LuBadgeInfo />}
           title="About Qotdia"
-          subtitle="version 1.0.0"
           right={<FaChevronRight />}
         />
 
         <hr className="setting-hr" />
 
-        <SettingRow title="Legal Mentions" right={<FaChevronRight />} />
+        <SettingRow
+          logo={<LuShieldCheck />}
+          title="Privacy policy"
+          right={<FaChevronRight />}
+        />
+        <hr className="setting-hr" />
+
+        <SettingRow
+          logo={<MdGavel />}
+          title="Terms of Service"
+          right={<FaChevronRight />}
+        />
+        <hr className="setting-hr" />
+        <SettingRow
+          logo={<LuGitCommitHorizontal />}
+          title="App Version"
+          right={<p>V1.0.0</p>}
+        />
       </div>
+
+      <p
+        style={{
+          color: "var(--color-secondary)",
+          textAlign: "center",
+          margin: "1rem 0",
+          fontSize: ".8rem",
+        }}
+      >
+        {" "}
+        <LuLock /> Client side Architecture
+      </p>
+
+      <p
+        style={{
+          color: "var(--color-text-secondary)",
+          textAlign: "center",
+          margin: "1rem 0",
+          fontSize: ".8rem",
+        }}
+      >
+        
+        Qotdia PWA {<LuDot />} Built with mindfulness for daily contemplation.
+      </p>
     </div>
   );
 };

@@ -7,7 +7,7 @@
     gap: .7rem;
 }
 .fav-number{
-    background: rgba(162, 155, 254, 0.3);
+    background: var(--color-primary-transparent);
     
     font-size: .8rem;
     border-radius: var(--radius-lg);
