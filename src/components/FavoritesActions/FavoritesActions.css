@@ -1,0 +1,19 @@
+.favoritesactions {
+  
+}
+.fav-title{
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+.fav-number{
+    background: rgba(162, 155, 254, 0.3);
+    
+    font-size: .8rem;
+    border-radius: var(--radius-lg);
+    padding: 0 .5rem;
+}
+.fav-desc{
+    color: var(--color-text-secondary);
+    padding: .4rem 0;
+}

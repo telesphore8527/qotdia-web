@@ -1,196 +1,55 @@
 /** @type {NextPage} */
 import FavQuoteCard from "../components/FavQuoteCard/FavQuoteCard";
-import { FavoritesEmpty } from "../components/EmptyState/EmptyState";
+import { FavoritesEmpty, ExploreEmpty } from "../components/EmptyState/EmptyState";
+import { useFavoriteStore } from "../store/useFavoriteStore";
+import ExploreActions from "../components/ExploreActions/ExploreActions";
+import FavoritesActions from "../components/FavoritesActions/FavoritesActions";
+import { useState } from "react";
 
 const Favorites = () => {
+  const { favorites } = useFavoriteStore();
+
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+  const [onreset, setOnreset] = useState(0)
+
+const categories = []
+favorites.forEach(f => {
+  const added = categories.some((c)=>c.slug === f.category.slug)
+
+  if(!added) categories.push(f.category)
+});
+
+  const filtered = favorites.filter((f)=>{
+    const matchSearchContent = f.content.toLowerCase().includes(search.toLocaleLowerCase().trim())
+    const matchSearchAuthor = f.author.toLowerCase().includes(search.toLocaleLowerCase().trim())
+    const matchCategory = category.toLowerCase() === "all" || f.category.slug === category.trim()
+
+    return matchCategory && (matchSearchAuthor || matchSearchContent)
+  })
+
+  const handleReset = ()=>{
+    setCategory("all")
+    setSearch("")
+    setOnreset((prev)=> prev+1)
+  }
+
+  if (favorites.length === 0) return <FavoritesEmpty />;
+
   return (
     <section>
-      <h1>My Favorites</h1>
+      {/* <ExploreActions /> */}
+      <FavoritesActions key={onreset} categories={categories} favNumber={favorites.length} setSearch={setSearch} search={search} setCategory={setCategory} />
 
-      {/* <section className="favquotecard-container">
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore",
-            date: "22 sept 2026",
-            category: {
-              name: "Motivation",
-              slug: "motivation",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore",
-            date: "22 sept 2026",
-            category: {
-              name: "Self-confidence",
-              slug: "self-confidence",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore",
-            date: "22 sept 2026",
-            category: {
-              name: "Love",
-              slug: "love",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore",
-            date: "22 sept 2026",
-            category: {
-              name: "wisdom",
-              slug: "wisdom",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore",
-            date: "22 sept 2026",
-            category: {
-              name: "Success",
-              slug: "success",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore",
-            date: "22 sept 2026",
-            category: {
-              name: "Philosophy",
-              slug: "philosophy",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore",
-            date: "22 sept 2026",
-            category: {
-              name: "relationships",
-              slug: "relationships",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore kuedjeu",
-            date: "22 sept 2026",
-            category: {
-              name: "career",
-              slug: "career",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore kuedjeu",
-            date: "22 sept 2026",
-            category: {
-              name: "perseverance",
-              slug: "perseverance",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore kuedjeu",
-            date: "22 sept 2026",
-            category: {
-              name: "hapiness",
-              slug: "happiness",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore kuedjeu",
-            date: "22 sept 2026",
-            category: {
-              name: "hope",
-              slug: "hope",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-        <FavQuoteCard
-          quote={{
-            id: 20,
-            content:
-              "Un ami en qui on ne peut pas voir un meilleur ennemi est un hypocrite.",
-            author: "Telesphore kuedjeu",
-            date: "22 sept 2026",
-            category: {
-              name: "learning",
-              slug: "learning",
-              description:
-                "gar je connais pas la description mais bon je dois quand meme en avoir un grande juste au cas ou...",
-            },
-          }}
-        />
-      </section> */}
-
-      <FavoritesEmpty />
+      <ul className="favquotecard-container">
+        {
+          filtered.length === 0? <ExploreEmpty onClick={()=>handleReset} /> : (
+            filtered.map((quote) => {
+          return <FavQuoteCard key={quote.id} quote={quote} />
+        })
+          )
+        }
+      </ul>
     </section>
   );
 };

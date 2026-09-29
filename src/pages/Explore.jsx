@@ -10,6 +10,7 @@ const Explore = () => {
 
   return (
     <section>
+      <h3>Explore </h3>
       <ExploreActions
       key={onreset}
         search={search}

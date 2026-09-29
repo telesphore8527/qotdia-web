@@ -1,7 +1,11 @@
 import "./FavQuoteCard.css";
 import { getCategoryColors } from "../../config/categoryVisuals";
 import { FaHeart } from "react-icons/fa";
-import { LuHeart, LuCopy, LuShare2 } from "react-icons/lu";
+import { LuHeart, LuCopy, LuShare2, LuClipboardCheck } from "react-icons/lu";
+import { useQuoteActions } from "../../hooks/useQuoteActions";
+import dayjs from "dayjs";
+import relativeTime from 'dayjs/plugin/relativeTime'
+
 
 import {
   FiBook,
@@ -17,8 +21,9 @@ import {
   FiBriefcase,
   FiSunrise,
 } from "react-icons/fi";
+import { useState } from "react";
 
-const FavQuoteCard = ({ quote, isFavorite }) => {
+const FavQuoteCard = ({ quote }) => {
   const categIcons = {
     FiBook: FiBook,
     FiZap: FiZap,
@@ -37,6 +42,18 @@ const FavQuoteCard = ({ quote, isFavorite }) => {
   const iconColor = getCategoryColors(quote.category.slug).text;
   const iconBg = getCategoryColors(quote.category.slug).bg;
   const Icon = categIcons[iconName];
+  const [copied, setCopied] = useState(false)
+
+  const {isFavorite, toggleFavorite, shareQuote, copyQuote} = useQuoteActions()
+  dayjs.extend(relativeTime)
+
+  const handleCopy = (quote) => {
+    copyQuote(quote);
+    setCopied(true)
+    setInterval(()=>{
+      setCopied(false)
+    }, 1000)
+  };
 
   return (
     <article className="favquotecard">
@@ -51,9 +68,9 @@ const FavQuoteCard = ({ quote, isFavorite }) => {
           {<Icon />}
           {quote.category.name}
         </div>
-        <div className="favquotecard-right">
-          <span> {quote.date ? quote.date : ""} </span>
-          <span className="icon">
+        <div className="favquotecard-right" style={{gap: ".5rem"}}>
+          <span style={{fontSize: ".7rem"}}> {dayjs(quote.addedAt).fromNow()} </span>
+          <span className="icon" onClick={()=>toggleFavorite(quote)}>
             {" "}
             {isFavorite ? (
               <FaHeart size={26} color="red" />
@@ -83,11 +100,11 @@ const FavQuoteCard = ({ quote, isFavorite }) => {
         </div>
 
         <div className="favquotecard-actions">
-          <div className="copy icon">
-            <LuCopy></LuCopy>
+          <div className="copy icon" onClick={()=>handleCopy(quote)}>
+            {copied? <div style={{display: "flex", alignItems: "center"}}><LuClipboardCheck /> <i style={{fontSize: ".5rem"}}>copied</i></div> : <LuCopy />}
           </div>
-          <div className="share icon">
-            <LuShare2></LuShare2>
+          <div className="share icon" onClick={()=>shareQuote(quote)}>
+            <LuShare2 />
           </div>
         </div>
       </section>

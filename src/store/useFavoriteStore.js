@@ -19,7 +19,7 @@ export const useFavoriteStore = create(
           });
         } else {
           set({
-            favorites: [...favorites, quote],
+            favorites: [...favorites, {...quote, addedAt: Date.now()}],
           });
         }
       },

@@ -105,7 +105,7 @@ export function ExploreLoadingMore(){
   return (
     <section className="exploreloadingmore">
       <div className="spinner-section">
-        <div className="spinner"></div> loading more quotes...
+        <div className="spinner"></div> loading more Inspiration...
       </div>
     </section>
   )

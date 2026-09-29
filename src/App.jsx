@@ -4,6 +4,7 @@ import AppRoutes from "./routes";
 import { queryClient } from "./lib/queryClient";
 import { useUiStore } from "./store/useUiStore";
 import { useEffect } from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export default function App() {
   const { theme } = useUiStore();
@@ -17,6 +18,7 @@ export default function App() {
       <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

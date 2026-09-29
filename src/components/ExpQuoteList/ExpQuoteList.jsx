@@ -17,20 +17,20 @@ const ExpQuoteList = ({
   setCategory,
   setOnreset,
 }) => {
-
-
   const {
     data,
     isLoading,
     isError,
     hasNextPage,
     isFetchingNextPage,
+    isFetchNextPageError,
     fetchNextPage,
     refetch,
     error,
   } = useInfiniteQuotes({ search, category });
   const { targetRef, isIntersecting } = useIntersectionObserver({
-    enabled: hasNextPage, rootMargin: '400px'
+    enabled: hasNextPage,
+    rootMargin: "400px",
   });
 
   const handleReset = () => {
@@ -39,25 +39,21 @@ const ExpQuoteList = ({
     setOnreset((prev) => prev + 1);
   };
 
-    const quotes = data?.pages?.flatMap((d) => d.data);
+  const quotes = data?.pages?.flatMap((d) => d.data);
   const shuffledQuotes = useMemo(
     () => shuffle(data?.pages?.flatMap((d) => d.data) ?? []),
     [data]
   );
 
-  useEffect(()=>{
-	if(isIntersecting && hasNextPage){
-		fetchNextPage()
-	}
-  },[isIntersecting, hasNextPage, fetchNextPage])
-
-
-
-
+  useEffect(() => {
+    if (isIntersecting && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [isIntersecting, hasNextPage, fetchNextPage]);
 
   if (isLoading) return <ExploreLoading noHeader />;
 
-  if (isError)
+  if (isError && !data)
     return <ExploreError onClick={refetch} message={error.message} />;
 
   if (shuffledQuotes.length === 0)
@@ -69,26 +65,19 @@ const ExpQuoteList = ({
         return (
           <ExpQuoteCard
             key={quote.id}
-            quote={{
-              id: quote.id,
-              content: quote.content,
-              author: quote.author,
-              date: new Date(),
-              category: quote.category,
-            }}
+            quote={quote}
           />
         );
       })}
 
-      {
-		hasNextPage && <div
-        className="sentinel"
-        ref={targetRef}
-        style={{ cursor: "pointer", height: "1px" }}
-      >
-        {" "}
-      </div>
-	  }
+      {hasNextPage && (
+        <div
+          className="sentinel"
+          ref={targetRef}
+          style={{ cursor: "pointer", height: "1px" }}
+        >
+        </div>
+      )}
 
       {hasNextPage && isFetchingNextPage && (
         <div>
@@ -103,6 +92,24 @@ const ExpQuoteList = ({
         >
           You reached the end of the list !!{" "}
         </p>
+      )}
+
+      {isFetchNextPageError && !isFetchingNextPage &&(
+        <div
+          style={{ textAlign: "center", color: "var(--color-text-secondary)" }}
+        >
+          Error while fetching more quotes!
+          <button
+            style={{
+              color: "var(--color-primary)",
+              padding: ".5rem",
+              background: "none",
+            }}
+            onClick={fetchNextPage}
+          >
+            retry
+          </button>
+        </div>
       )}
     </section>
   );
