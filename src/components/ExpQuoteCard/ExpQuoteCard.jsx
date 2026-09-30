@@ -1,7 +1,7 @@
 import "./ExpQuoteCard.css";
 import { getCategoryColors } from "../../config/categoryVisuals";
 import { FaHeart } from "react-icons/fa";
-import { LuHeart, LuCopy, LuShare2, LuClipboardCheck } from "react-icons/lu";
+import { LuHeart, LuCopy, LuShare2, LuClipboardCheck, LuQuote } from "react-icons/lu";
 import { useQuoteActions } from "../../hooks/useQuoteActions";
 import { useState } from "react";
 
@@ -54,7 +54,7 @@ const ExpQuoteCard = ({ quote }) => {
         <div className="favquotecard-right">
           <p className="favquotecard-icon" style={{ fontSize: "3rem" }}>
             {" "}
-            <span>“</span>{" "}
+            <span> {<LuQuote size= "1rem" />}</span>{" "}
           </p>
         </div>
       </header>

@@ -1,0 +1,56 @@
+.pwa-toast {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 16px;
+  background: #0a1628;
+  color: #fff;
+  border: 1px solid #6c5ce7;
+  border-radius: 12px;
+  z-index: 1000;
+}
+.pwa-toast span {
+  flex: 1;
+}
+.pwa-toast button{
+    padding: .2rem .5rem;
+    border-radius: 2rem;
+    font-size: .8rem;
+    background: none;
+    border: 2px solid var(--color-primary);
+    color: var(--color-text);
+}
+.pwa-toast button:first-child{
+  color: white;
+  background: var(--color-primary);
+}
+
+.pwa-install {
+  width: fit-content;
+  background: var(--color-card);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-card);
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
+
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 80px;
+  z-index: 10000;
+}
+
+.pwa-install-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+}

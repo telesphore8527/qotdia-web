@@ -21,7 +21,7 @@ import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { ExploreLoading } from "../LoadingState/LoadingState";
 import { useEffect, useState } from "react";
 
-const ExploreActions = ({ setCategory, setSearch }) => {
+const ExploreActions = ({ setCategory, setSearch, setRefetchCateg }) => {
   const categIcons = {
     FiBook: FiBook,
     FiZap: FiZap,
@@ -39,6 +39,8 @@ const ExploreActions = ({ setCategory, setSearch }) => {
   };
 
   const { data, isLoading, isError, refetch } = useCategories();
+
+  
   const [activeId, setActiveId] = useState(-1);
 
   const [localSearch, setLocalSearch] = useState("")
@@ -105,7 +107,7 @@ const ExploreActions = ({ setCategory, setSearch }) => {
                 color: "var(--color-text-secondary)",
                 fontSize: ".8rem",
               }}
-            >
+            > {setRefetchCateg(()=>refetch)}
               error while loading categories.{" "}
               <button
                 style={{

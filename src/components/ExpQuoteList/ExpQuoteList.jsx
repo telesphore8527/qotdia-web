@@ -16,6 +16,7 @@ const ExpQuoteList = ({
   category,
   setCategory,
   setOnreset,
+  refetchCateg
 }) => {
   const {
     data,
@@ -51,10 +52,15 @@ const ExpQuoteList = ({
     }
   }, [isIntersecting, hasNextPage, fetchNextPage]);
 
+  const handleRefetch = ()=>{
+    refetch()
+    refetchCateg?.()
+  }
+
   if (isLoading) return <ExploreLoading noHeader />;
 
   if (isError && !data)
-    return <ExploreError onClick={refetch} message={error.message} />;
+    return <ExploreError onClick={handleRefetch} message={error.message} />;
 
   if (shuffledQuotes.length === 0)
     return <ExploreEmpty onClick={() => handleReset} />;

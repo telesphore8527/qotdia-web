@@ -1,6 +1,7 @@
 .dailyquotecard {
   position: relative;
   /* margin-top: 1rem; */
+  border-radius: 1.5rem;
 }
 
 .quote-card {
@@ -8,7 +9,7 @@
 
   /* background: url(../../assets/backgrounds/background-montagne.png); */
   /* background: url(../../assets/backgrounds/background-desert.png); */
-  border-radius: var(--radius-sm);
+  border-radius: 1.5rem;
   overflow: auto;
   color: white;
   padding: 1rem;

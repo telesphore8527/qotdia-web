@@ -6,6 +6,7 @@ import ExpQuoteList from "../components/ExpQuoteList/ExpQuoteList";
 
 const Explore = () => {
   const [category, setCategory] = useState("");
+  const [refetchCateg, setRefetchCateg] = useState(null)
   const [search, setSearch] = useState("");
   const [onreset, setOnreset] = useState(0);
 
@@ -17,12 +18,13 @@ const Explore = () => {
       </div>
       <ExploreActions
       key={onreset}
-        search={search}
+      setRefetchCateg={setRefetchCateg}
         setSearch={setSearch}
-        category={category}
         setCategory={setCategory}
       />
-      <ExpQuoteList search={search} setOnreset={setOnreset} setSearch={setSearch} category={category} setCategory={setCategory} />
+      <ExpQuoteList 
+      refetchCateg={refetchCateg}
+      search={search} setOnreset={setOnreset} setSearch={setSearch} category={category} setCategory={setCategory} />
     </section>
   );
 };

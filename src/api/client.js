@@ -12,7 +12,7 @@ async function request(endpoint, options = {}) {
   if (!response.ok) {
     let body = null;
     try {
-      body = response.json();
+      body = await response.json();
     } catch {/* nothing to do*/}
     const error = new Error(body?.message);
 

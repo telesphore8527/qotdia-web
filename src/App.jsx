@@ -5,6 +5,7 @@ import { queryClient } from "./lib/queryClient";
 import { useUiStore } from "./store/useUiStore";
 import { useEffect } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { HelmetProvider } from "react-helmet-async";
 
 export default function App() {
   const { theme } = useUiStore();
@@ -14,11 +15,13 @@ export default function App() {
   }, [theme]);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }

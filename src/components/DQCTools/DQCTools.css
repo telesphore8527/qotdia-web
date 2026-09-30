@@ -4,7 +4,7 @@
   bottom: 1rem;
   width: calc(100% - 2rem);
   justify-content: space-between;
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
   font-size: 1.8rem;
 }
 .dqctools svg {

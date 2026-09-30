@@ -1,7 +1,7 @@
 import "./FavQuoteCard.css";
 import { getCategoryColors } from "../../config/categoryVisuals";
 import { FaHeart } from "react-icons/fa";
-import { LuHeart, LuCopy, LuShare2, LuClipboardCheck } from "react-icons/lu";
+import { LuHeart, LuCopy, LuShare2, LuClipboardCheck, LuQuote } from "react-icons/lu";
 import { useQuoteActions } from "../../hooks/useQuoteActions";
 import dayjs from "dayjs";
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -82,7 +82,7 @@ const FavQuoteCard = ({ quote }) => {
       </header>
 
       <section className="favquotecard-body">
-        <p className="favquotecard-icon"> “ </p>
+        <p className="favquotecard-icon"> {<LuQuote />} </p>
         <p>{quote.content}</p>
       </section>
 
