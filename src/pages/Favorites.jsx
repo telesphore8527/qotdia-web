@@ -2,7 +2,6 @@
 import FavQuoteCard from "../components/FavQuoteCard/FavQuoteCard";
 import { FavoritesEmpty, ExploreEmpty } from "../components/EmptyState/EmptyState";
 import { useFavoriteStore } from "../store/useFavoriteStore";
-import ExploreActions from "../components/ExploreActions/ExploreActions";
 import FavoritesActions from "../components/FavoritesActions/FavoritesActions";
 import { useState } from "react";
 
@@ -26,7 +25,7 @@ favorites.forEach(f => {
     const matchCategory = category.toLowerCase() === "all" || f.category.slug === category.trim()
 
     return matchCategory && (matchSearchAuthor || matchSearchContent)
-  })
+  }).reverse();
 
   const handleReset = ()=>{
     setCategory("all")
@@ -39,7 +38,7 @@ favorites.forEach(f => {
   return (
     <section>
       {/* <ExploreActions /> */}
-      <FavoritesActions key={onreset} categories={categories} favNumber={favorites.length} setSearch={setSearch} search={search} setCategory={setCategory} />
+      <FavoritesActions key={onreset} categories={categories.reverse()} favNumber={favorites.length} setSearch={setSearch} search={search} setCategory={setCategory} />
 
       <ul className="favquotecard-container">
         {
