@@ -1,6 +1,9 @@
 import "./DailyQuoteCard.css";
 import CategoryBackground from "../CategoryBackground/CategoryBackground";
 import DQCTools from "../DQCTools/DQCTools";
+import { LuQuote } from "react-icons/lu";
+import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteRight } from "react-icons/fa6";
 
 const DailyQuoteCateg = ({ category }) => {
   return (
@@ -24,8 +27,11 @@ const DailyQuoteCard = ({ quote }) => {
     <section className="dailyquotecard">
       <CategoryBackground categorySlug={quote["category"].slug}>
         <article className="quote-card">
+          <div className="quote-card-header">
+            {/* ici je dois mettre la ou on suit par voice et la category mais c'est pour plus tard sinon je vais jamais m'areter dans le design */}
+          </div>
           <div>
-            <p className="quote-icon"> “ </p>
+            <p className="quote-icon">{<LuQuote />} </p>
             <p className="quote-content"> " {quote.content} "</p>
 
             <p className="quote-author">

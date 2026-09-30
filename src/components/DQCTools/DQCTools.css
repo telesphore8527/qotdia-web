@@ -1,13 +1,36 @@
 .dqctools {
   display: flex;
-    position: absolute;
-    bottom: 1rem;
-    width: calc(100% - 2rem);
+  position: absolute;
+  bottom: 1rem;
+  width: calc(100% - 2rem);
   justify-content: space-between;
   padding: 0 1rem;
   font-size: 1.8rem;
-  
 }
-.dqctools svg{
-    cursor: pointer;
+.dqctools svg {
+  cursor: pointer;
+}
+
+.dqc-like {
+  border-radius: 50%;
+  background: var(--color-primary-transparent);
+  display: flex;
+  align-items: center;
+  padding: 0.7rem;
+  font-size: 1.4rem;
+}
+
+.dqc-share {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  background: white;
+  border-radius: 2rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.dqc-share p {
+  font-size: inherit;
 }

@@ -20,7 +20,7 @@ const DQCTools = ({ quote }) => {
         {favorite ? <FaHeart color="red" /> : <LuHeart />}
       </div>
       <div className="dqc-share" onClick={() => shareQuote(quote)}>
-        <LuShare2 />
+        <LuShare2 /> <p>Share</p>
       </div>
     </div>
   );
