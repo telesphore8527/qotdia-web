@@ -8,16 +8,18 @@
 }
 
 .setting-section {
-  background: var(--color-bg);
+  background: var(--color-surface);
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  
+  /* box-shadow: var(--shadow-card); */
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
 }
 
 .setting-hr {
   width: 90%;
   margin: auto;
-  border: .5px solid lightgray;
+  border-bottom: .5px solid rgba(190, 190, 190, 0.2);
 }
 
 /* SettingRow  */
@@ -26,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: .8rem 1rem;
   border-radius: inherit;
   background: transparent;
   width: 100%;
@@ -50,7 +52,7 @@ p {
   text-align: left;
 }
 .settingRow .settingRow-title {
-  font-weight: bold;
+  font-weight: 500;
   text-align: left;
   font-size: 1.2rem;
   
@@ -111,13 +113,13 @@ p {
 .setting-section input[type="time"]{
   appearance: none;
   -webkit-appearance: none;
-  border: 2px solid var(--color-surface);
+  border: 1px solid var(--color-surface);
   border-radius: 8px;
   padding: 10px 12px;
   background: var(--color-bg);
   font-size: 14px;
   font-family: inherit;
-  outline: 2px solid var(--color-text-secondary);
+  outline: 1px solid var(--color-text-secondary);
   color: var(--color-primary);
 }
 .setting-section input[type="time"]:focus{

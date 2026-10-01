@@ -4,7 +4,7 @@ import { useDailyQuote } from "../hooks/useDailyQuote";
 import { HomeLoading } from "../components/LoadingState/LoadingState";
 import { HomeError } from "../components/ErrorState/ErrorState";
 import dayjs from "dayjs";
-import { LuCalendar, LuStar, LuStarHalf } from "react-icons/lu";
+import { LuCalendar, LuStar } from "react-icons/lu";
 import { useUiStore } from "../store/useUiStore";
 
 const Home = () => {

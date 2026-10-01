@@ -7,11 +7,13 @@
     color: var(--color-text-secondary);
 }
 .homeloading-row.first-row{
-    background: var(--color-surface);
+    background: var(--color-border);
+    border: 1px solid var(--color-bg);
     width: 150px;
 }
 .homeloading-row{
     background-color: var(--color-border);
+    border: 1px solid var(--color-bg);
     width: 300px;
     height: 1.5rem;
     border-radius: 1rem;
@@ -19,10 +21,11 @@
 }
 
 .homeloading-card{
-    background: var(--color-bg);
+    background: var(--color-surface);
     padding: 1rem;
     /* box-shadow: 0 0 30px 8px rgba(0, 0, 0, 0.08); */
     border-radius: 2rem;
+    border: 1px solid var(--color-border);
     margin: 2rem 0;
 }
 
@@ -80,8 +83,9 @@
 
 .expload-search{
     height: 2.5rem;
-    background-color: var(--color-border);
+    background-color: var(--color-surface);
     border-radius: .8rem;
+    border: 1px solid var(--color-border);
 }
 
 .expload-filter{
@@ -95,19 +99,22 @@
 .expload-filter .expload-column{
     border-radius: 1rem;
     height: 2rem;
-    background-color: var(--color-border);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
 }
 
 .expload-card{
-    background: var(--color-bg);
+    background: var(--color-surface);
     padding: .5rem 1.2rem;
     /* box-shadow: 0 0 30px 8px rgba(0, 0, 0, 0.08); */
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     margin: 1rem 0;
 }
 
 .expload-row{
     background: var(--color-border);
+    border: 2px solid var(--color-bg);
     border-radius: 1rem;
     margin: .5rem 0;
     height: .8rem;

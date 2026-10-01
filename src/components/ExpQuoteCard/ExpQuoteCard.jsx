@@ -1,7 +1,13 @@
 import "./ExpQuoteCard.css";
 import { getCategoryColors } from "../../config/categoryVisuals";
 import { FaHeart } from "react-icons/fa";
-import { LuHeart, LuCopy, LuShare2, LuClipboardCheck, LuQuote } from "react-icons/lu";
+import {
+  LuHeart,
+  LuCopy,
+  LuShare2,
+  LuClipboardCheck,
+  LuQuote,
+} from "react-icons/lu";
 import { useQuoteActions } from "../../hooks/useQuoteActions";
 import { useState } from "react";
 
@@ -22,10 +28,10 @@ const ExpQuoteCard = ({ quote }) => {
 
   const handleCopy = (quote) => {
     copyQuote(quote);
-    setCopied(true)
-    setInterval(()=>{
-      setCopied(false)
-    }, 1000)
+    setCopied(true);
+    setInterval(() => {
+      setCopied(false);
+    }, 1000);
   };
 
   return (
@@ -52,9 +58,9 @@ const ExpQuoteCard = ({ quote }) => {
           {quote.category.name}
         </div>
         <div className="favquotecard-right">
-          <p className="favquotecard-icon" style={{ fontSize: "3rem" }}>
+          <p className="favquotecard-icon" style={{ fontSize: "2rem" }}>
             {" "}
-            <span> {<LuQuote size= "1rem" />}</span>{" "}
+            <span> {LuQuote()}</span>{" "}
           </p>
         </div>
       </header>
@@ -78,9 +84,13 @@ const ExpQuoteCard = ({ quote }) => {
 
         <div className="favquotecard-actions">
           <div className="copy icon" onClick={() => handleCopy(quote)}>
-            {
-              copied? <div style={{display: "flex", alignItems: "center"}}><LuClipboardCheck /> <i style={{fontSize: ".5rem"}}>copied</i></div> : <LuCopy />
-            }
+            {copied ? (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <LuClipboardCheck /> <i style={{ fontSize: ".5rem" }}>copied</i>
+              </div>
+            ) : (
+              <LuCopy />
+            )}
           </div>
 
           <div className="share icon" onClick={() => shareQuote(quote.id)}>

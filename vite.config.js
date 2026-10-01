@@ -7,7 +7,9 @@ const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const API_BASE = (env.VITE_API_BASE_URL || "http://localhost:8000/api/v1").replace(/\/$/, "");
+  const API_BASE = (
+    env.VITE_API_BASE_URL || "http://localhost:8000/api/v1"
+  ).replace(/\/$/, "");
 
   // Regex sur l'URL complète : API_BASE + chemin + query string optionnelle
   const api = (path) => new RegExp("^" + esc(API_BASE) + path + "(\\?.*)?$");
@@ -17,7 +19,11 @@ export default defineConfig(({ mode }) => {
       react(),
       VitePWA({
         registerType: "prompt",
-        includeAssets: ["icons/apple-touch-icon.png", "icons/favicon.ico", "icon.png"],
+        includeAssets: [
+          "icons/apple-touch-icon.png",
+          "icons/favicon.ico",
+          "logo.png",
+        ],
         manifest: {
           name: "Qotdia",
           short_name: "Qotdia",

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useUiStore } from "../store/useUiStore";
 import "../styles/Settings.css";
 import { FaChevronRight } from "react-icons/fa6";
-import { FaChevronDown, FaDotCircle } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import {
   LuShieldCheck,
   LuClock8,
@@ -16,6 +16,7 @@ import {
   LuDot,
 } from "react-icons/lu";
 import { MdGavel } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function SectionLabel({ children }) {
   return (
@@ -52,7 +53,7 @@ export function SettingRow({ logo, title, subtitle, right, onClick, children }) 
 const Settings = () => {
   const [notifsOn, setNotifsOn] = useState(true);
   const { theme, setTheme } = useUiStore();
-  const [time, setTime] = useState("07:00");
+  const [time, setTime] = useState("08:00");
   const [editingTime, setEditingTime] = useState(false);
 
   return (
@@ -131,10 +132,12 @@ const Settings = () => {
         <SettingRow>
           <p
             style={{
-              padding: "1rem",
+              padding: ".5rem",
+              margin: ".2rem 1rem",
               fontSize: ".8rem",
-              border: "12px solid var(--color-surface)",
-              borderTop: "none",
+              border: "2px solid var(--color-border)",
+              borderRadius: ".6rem",
+              background: "var(--color-bg)",
               display: "flex",
               gap: ".8rem",
               color: "var(--color-text-secondary)",
@@ -183,7 +186,7 @@ const Settings = () => {
 
       <SectionLabel>Aplication Info</SectionLabel>
       <div className="setting-section">
-        <SettingRow
+          <SettingRow
           title="Running offline"
           subtitle="data are available offline"
           right={
@@ -199,26 +202,32 @@ const Settings = () => {
 
         <hr className="setting-hr" />
 
+        <Link to="/about">
         <SettingRow
           logo={<LuBadgeInfo />}
           title="About Qotdia"
           right={<FaChevronRight />}
         />
+        </Link>
 
         <hr className="setting-hr" />
 
+        <Link to="/privacy"> 
         <SettingRow
           logo={<LuShieldCheck />}
           title="Privacy policy"
           right={<FaChevronRight />}
         />
+        </Link>
         <hr className="setting-hr" />
 
+        <Link to="/terms">
         <SettingRow
           logo={<MdGavel />}
           title="Terms of Service"
           right={<FaChevronRight />}
         />
+        </Link>
         <hr className="setting-hr" />
         <SettingRow
           logo={<LuGitCommitHorizontal />}

@@ -1,3 +1,4 @@
+import { LuDownload } from "react-icons/lu";
 import useInstallPrompt from "./useInstallPrompt";
 
 export default function InstallButton() {
@@ -5,16 +6,16 @@ export default function InstallButton() {
 
   if (canInstall) {
     return (
-      <button className="pwa-install" onClick={install}>
+      <button className="pwa-install" onClick={install} >
         <div className="pwa-install-logo"> <img src="/logo.png" alt="pwa-install-logo" /> </div>
-        <b>Install Qotdia</b>
+        <b>Install Qotdia</b> {LuDownload({ style: { fontSize: "1.2rem" } })}
       </button>
     );
   }
   if (showIOSHint) {
     return (
       <p className="pwa-hint">
-        To install: tap Share, then "Add to Home Screen".
+        <b>To install: tap Share, then "Add to Home Screen".</b>
       </p>
     );
   }

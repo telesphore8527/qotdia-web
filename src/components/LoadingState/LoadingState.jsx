@@ -9,16 +9,16 @@ export function HomeLoading() {
       <div className="homeloading-row first-row "  style={{
           boxShadow:
             theme === "dark"
-              ? " 0 0 30px 8px rgba(255, 255, 255, 0.08)"
-              : " 0 0 30px 8px rgba(0, 0, 0, 0.08)",
+              ? " 0 0 10px rgba(255, 255, 255, 0.08)"
+              : " 0 0 10px rgba(0, 0, 0, 0.08)",
         }}></div>
       <section
         className="homeloading-card"
         style={{
           boxShadow:
             theme === "dark"
-              ? " 0 0 30px 8px rgba(255, 255, 255, 0.08)"
-              : " 0 0 30px 8px rgba(0, 0, 0, 0.08)",
+              ? " 0 0 8px rgba(255, 255, 255, 0.08)"
+              : " 0 0 8px rgba(0, 0, 0, 0.08)",
         }}
       >
         <div className="homeloading-sec1">
@@ -44,8 +44,8 @@ export function HomeLoading() {
         style={{
           boxShadow:
             theme === "dark"
-              ? " 0 0 30px 8px rgba(255, 255, 255, 0.08)"
-              : " 0 0 30px 8px rgba(0, 0, 0, 0.08)",
+              ? " 0 0  8px rgba(255, 255, 255, 0.08)"
+              : " 0 0  8px rgba(0, 0, 0, 0.08)",
         }}
       ></section>
     </div>
@@ -79,8 +79,8 @@ export function ExploreLoading({ cardNumber = 3, noHeader }) {
           return <article key={id} className="expload-card" style={{
           boxShadow:
             theme === "dark"
-              ? " 0 0 30px 8px rgba(255, 255, 255, 0.08)"
-              : " 0 0 30px 8px rgba(0, 0, 0, 0.08)",
+              ? " 0 0 8px rgba(255, 255, 255, 0.08)"
+              : " 0 0 8px rgba(0, 0, 0, 0.08)",
         }}>
             <div className="expload-row"></div>
             <div className="expload-row"></div>
