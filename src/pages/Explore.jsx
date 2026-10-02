@@ -3,6 +3,7 @@ import "../styles/explore.css"
 
 import { useState } from "react";
 import ExpQuoteList from "../components/ExpQuoteList/ExpQuoteList";
+import Seo from "../components/Seo";
 
 const Explore = () => {
   const [category, setCategory] = useState("");
@@ -12,6 +13,12 @@ const Explore = () => {
 
   return (
     <section>
+      <Seo
+  title="Explore Quotes by Category | Qotdia"
+  description="Browse quotes on motivation, wisdom, love, success, perseverance and more. Find the right words and save your favorites."
+  path="/explore"
+/>
+
       <div className="exp-title">
         <h2>Explore Quotes</h2>{" "}
         <div className="exp-number">12,450+</div>{" "}

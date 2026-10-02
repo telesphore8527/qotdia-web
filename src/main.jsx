@@ -6,9 +6,12 @@ import './styles/tokens.css'
 import '@fontsource/poppins'
 import '@fontsource/poppins/700'
 import App from './App.jsx'
+import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </StrictMode>,
 )

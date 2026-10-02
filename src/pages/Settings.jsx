@@ -17,6 +17,7 @@ import {
 } from "react-icons/lu";
 import { MdGavel } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 
 function SectionLabel({ children }) {
   return (
@@ -59,6 +60,7 @@ const Settings = () => {
   return (
     <div>
       {/* Daily notif*/}
+      <Seo title="Settings | Qotdia" description="Customize your Qotdia experience." path="/settings" noindex />
 
       <SectionLabel>Daily Inspiration</SectionLabel>
       <div className="setting-section">

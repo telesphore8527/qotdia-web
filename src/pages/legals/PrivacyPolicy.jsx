@@ -11,10 +11,13 @@ import {
 } from 'react-icons/fi';
 import { SITE } from '../../config/site';
 import { ContactCard, LegalLayout, LegalSection } from './LegalLayout';
+import Seo from '../../components/Seo';
 
 export default function PrivacyPolicy() {
   return (
     <LegalLayout title="Privacy Policy" subtitle={`Last updated: ${SITE.legalLastUpdated}`}>
+      <Seo title="Privacy Policy | Qotdia" description="How Qotdia handles your data. Read our privacy policy." path="/privacy" />
+
       <div className="legal-highlight">
         <FiShield size={20} className="legal-highlight__icon" aria-hidden="true" />
         <p>

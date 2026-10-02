@@ -10,10 +10,12 @@ import {
 } from 'react-icons/fi';
 import { SITE } from '../../config/site';
 import { ContactCard, LegalLayout, LegalSection } from './LegalLayout';
+import Seo from '../../components/Seo';
 
 export default function TermsOfService() {
   return (
     <LegalLayout title="Terms of Service" subtitle={`Last updated: ${SITE.legalLastUpdated}`}>
+      <Seo title="Terms of Use | Qotdia" description="The terms and conditions for using Qotdia." path="/terms" />
       <LegalSection icon={FiCheckCircle} title="1. Acceptance of terms">
         <p>
           By installing or using {SITE.name} ({SITE.url}), you agree to these terms. If you do not

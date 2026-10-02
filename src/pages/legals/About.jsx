@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fi';
 import { SITE } from '../../config/site';
 import { ContactCard, LegalLayout, LegalSection } from './LegalLayout';
+import Seo from '../../components/Seo';
 
 export default function About() {
   const initials = SITE.creator
@@ -20,10 +21,17 @@ export default function About() {
     .toUpperCase();
 
   return (
+    
     <LegalLayout title="About Qotdia" subtitle="Version, creator and contact">
+      <Seo
+  title="About Qotdia – Your Daily Quote App"
+  description="Qotdia delivers one carefully chosen quote every day, organized by category. Learn about the project and the person behind it."
+  path="/about"
+/>
+
       <div className="legal-hero">
         <div className="legal-hero__logo" aria-hidden="true">
-          “
+          <img src="/logo.png" alt={SITE.name} />
         </div>
         <h2 className="legal-hero__name">{SITE.name}</h2>
         <p className="legal-hero__tagline">One thoughtful quote a day, kept on your device.</p>

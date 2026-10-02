@@ -4,6 +4,7 @@ import { FavoritesEmpty, ExploreEmpty } from "../components/EmptyState/EmptyStat
 import { useFavoriteStore } from "../store/useFavoriteStore";
 import FavoritesActions from "../components/FavoritesActions/FavoritesActions";
 import { useState } from "react";
+import Seo from "../components/Seo";
 
 const Favorites = () => {
   const { favorites } = useFavoriteStore();
@@ -37,7 +38,7 @@ favorites.forEach(f => {
 
   return (
     <section>
-      {/* <ExploreActions /> */}
+      <Seo title="My Favorite Quotes | Qotdia" description="Your saved quotes, available offline." path="/favorites" noindex />
       <FavoritesActions key={onreset} categories={categories.reverse()} favNumber={favorites.length} setSearch={setSearch} search={search} setCategory={setCategory} />
 
       <ul className="favquotecard-container">

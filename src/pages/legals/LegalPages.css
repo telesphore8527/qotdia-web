@@ -159,27 +159,24 @@
   gap: 8px;
   padding: 24px 16px;
   text-align: center;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 100%
+  );
   border-radius: var(--radius-lg);
   color: #fff;
 }
 
 .legal-hero__logo {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 64px;
   height: 64px;
-  border: 3px solid #fff;
   border-radius: 50%;
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1;
+  overflow: hidden;
 }
 
 .legal-hero__logo::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -2px;
   bottom: 2px;
@@ -398,11 +395,11 @@
 }
 
 /* ---------- Dark theme tweaks ---------- */
-[data-theme='dark'] .legal-card,
-[data-theme='dark'] .legal-back {
+[data-theme="dark"] .legal-card,
+[data-theme="dark"] .legal-back {
   box-shadow: none;
 }
 
-[data-theme='dark'] .legal-hero {
+[data-theme="dark"] .legal-hero {
   background: linear-gradient(135deg, #4b3fb3 0%, var(--color-primary) 100%);
 }
