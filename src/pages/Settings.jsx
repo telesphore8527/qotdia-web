@@ -233,6 +233,7 @@ const Settings = () => {
           right={
             <input
               type="radio"
+              aria-label="Offline mode"
               value=""
               readOnly
               checked

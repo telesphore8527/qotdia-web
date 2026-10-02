@@ -22,6 +22,7 @@ export default defineConfig(({ mode }) => {
           "icons/apple-touch-icon.png",
           "icons/favicon.ico",
           "logo.png",
+          "logo.svg",
         ],
         manifest: {
           name: "Qotdia",

@@ -1,0 +1,17 @@
+# Qotdia
+
+> Qotdia is a daily quote app that helps people discover inspiring quotes by category. It is available as an installable Progressive Web App (PWA) with offline support.
+
+Qotdia provides a simple way to discover, read, save, and revisit quotes. The app includes a daily quote, category-based exploration, favorites, and offline capabilities.
+
+## Pages
+
+- [Home](https://qotdia.com/): The daily quote and the main entry point to Qotdia.
+- [Explore](https://qotdia.com/explore): Browse and discover quotes organized by category.
+- [About](https://qotdia.com/about): Information about Qotdia and the project.
+- [Privacy Policy](https://qotdia.com/privacy): Information about privacy and data handling.
+- [Terms of Use](https://qotdia.com/terms): Terms governing the use of Qotdia.
+
+## API
+
+- [Qotdia API](https://api.qotdia.com/): Public API providing quotes and quote-related data for applications and developers.

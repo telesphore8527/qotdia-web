@@ -17,7 +17,7 @@ const Header = () => {
       <header className="header">
         <a href="/" className="brand">
           <div className="logo-wrap">
-            <img src="logo.png" alt="logo" />
+            <img src="logo.svg" alt="qotdia-logo" />
           </div>
           <div>
             <div className="brand-name">
@@ -41,6 +41,7 @@ const Header = () => {
 
         <Link
           to="/settings"
+          aria-label="Settings"
           className="nav-icon"
           style={{ marginRight: ".8rem" }}
         >
