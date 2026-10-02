@@ -18,6 +18,7 @@ import {
 import { MdGavel } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
+import { useDailyReminder } from "../hooks/useDailyReminder";
 
 function SectionLabel({ children }) {
   return (
@@ -27,11 +28,16 @@ function SectionLabel({ children }) {
   );
 }
 
-export function SettingRow({ logo, title, subtitle, right, onClick, children }) {
-
-
+export function SettingRow({
+  logo,
+  title,
+  subtitle,
+  right,
+  onClick,
+  children,
+}) {
   return (
-    <div style={{cursor: onClick? "pointer" : "default"}}>
+    <div style={{ cursor: onClick ? "pointer" : "default" }}>
       {!children ? (
         <button className="settingRow" onClick={onClick}>
           <div className="settingRow-left-container">
@@ -52,15 +58,45 @@ export function SettingRow({ logo, title, subtitle, right, onClick, children }) 
 }
 
 const Settings = () => {
-  const [notifsOn, setNotifsOn] = useState(true);
+  // const [notifsOn, setNotifsOn] = useState(true);
   const { theme, setTheme } = useUiStore();
-  const [time, setTime] = useState("08:00");
-  const [editingTime, setEditingTime] = useState(false);
+  // const [time, setTime] = useState("08:00");
+  // const [editingTime, setEditingTime] = useState(false);
+  const { status, error, enable, disable } = useDailyReminder();
+  const [busy, setBusy] = useState(false);
+
+  const isOn = status === "on";
+  const subtitle =
+    status === "unsupported"
+      ? "Not supported on this browser."
+      : status === "blocked"
+      ? "Notifications are blocked in your browser settings."
+      : error || "Occasional reminders of your daily quote.";
+
+  async function handleChange() {
+    setBusy(true);
+    try {
+      if (isOn) {
+        await disable();
+        console.log("reminders disabled");
+      } else {
+        await enable();
+        console.log("reminders enabled");
+      }
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <div>
       {/* Daily notif*/}
-      <Seo title="Settings | Qotdia" description="Customize your Qotdia experience." path="/settings" noindex />
+      <Seo
+        title="Settings | Qotdia"
+        description="Customize your Qotdia experience."
+        path="/settings"
+        noindex
+      />
 
       <SectionLabel>Daily Inspiration</SectionLabel>
       <div className="setting-section">
@@ -74,21 +110,24 @@ const Settings = () => {
             />
           }
           title="Daily Quote Notification"
-          subtitle="Stored in local browser..."
+          subtitle={subtitle}
           right={
             <input
               type="checkbox"
+              role="switch"
+              aria-label="Quote reminders"
               className="setting-checkbox"
-              onChange={() => setNotifsOn((v) => !v)}
-              checked={notifsOn}
+              checked={isOn}
+              disabled={busy || status === "blocked"}
+              onChange={handleChange}
             />
           }
         />
 
-        <hr className="setting-hr" />
+        {/* <hr className="setting-hr" /> */}
 
         {/* Time of notif */}
-
+        {/* 
         <SettingRow
           logo={
             <LuClock8
@@ -117,9 +156,9 @@ const Settings = () => {
             </p>
           }
           onClick={() => setEditingTime((v) => !v)}
-        />
+        /> */}
 
-        {notifsOn && editingTime && (
+        {/* {notifsOn && editingTime && (
           <SettingRow>
             {" "}
             <p className="setting-time-zone" style={{background: "var(--color-surface)"}}>
@@ -130,7 +169,7 @@ const Settings = () => {
               />
             </p>
           </SettingRow>
-        )}
+        )} */}
         <SettingRow>
           <p
             style={{
@@ -188,7 +227,7 @@ const Settings = () => {
 
       <SectionLabel>Aplication Info</SectionLabel>
       <div className="setting-section">
-          <SettingRow
+        <SettingRow
           title="Running offline"
           subtitle="data are available offline"
           right={
@@ -205,30 +244,30 @@ const Settings = () => {
         <hr className="setting-hr" />
 
         <Link to="/about">
-        <SettingRow
-          logo={<LuBadgeInfo />}
-          title="About Qotdia"
-          right={<FaChevronRight />}
-        />
+          <SettingRow
+            logo={<LuBadgeInfo />}
+            title="About Qotdia"
+            right={<FaChevronRight />}
+          />
         </Link>
 
         <hr className="setting-hr" />
 
-        <Link to="/privacy"> 
-        <SettingRow
-          logo={<LuShieldCheck />}
-          title="Privacy policy"
-          right={<FaChevronRight />}
-        />
+        <Link to="/privacy">
+          <SettingRow
+            logo={<LuShieldCheck />}
+            title="Privacy policy"
+            right={<FaChevronRight />}
+          />
         </Link>
         <hr className="setting-hr" />
 
         <Link to="/terms">
-        <SettingRow
-          logo={<MdGavel />}
-          title="Terms of Service"
-          right={<FaChevronRight />}
-        />
+          <SettingRow
+            logo={<MdGavel />}
+            title="Terms of Service"
+            right={<FaChevronRight />}
+          />
         </Link>
         <hr className="setting-hr" />
         <SettingRow
@@ -258,7 +297,6 @@ const Settings = () => {
           fontSize: ".8rem",
         }}
       >
-        
         Qotdia PWA {<LuDot />} Built with mindfulness for daily contemplation.
       </p>
     </div>

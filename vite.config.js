@@ -11,7 +11,6 @@ export default defineConfig(({ mode }) => {
     env.VITE_API_BASE_URL || "http://localhost:8000/api/v1"
   ).replace(/\/$/, "");
 
-  // Regex sur l'URL complète : API_BASE + chemin + query string optionnelle
   const api = (path) => new RegExp("^" + esc(API_BASE) + path + "(\\?.*)?$");
 
   return {
@@ -50,12 +49,10 @@ export default defineConfig(({ mode }) => {
           navigateFallback: "/index.html",
           cleanupOutdatedCaches: true,
           runtimeCaching: [
-            // Aléatoire : jamais en cache
             {
               urlPattern: api("/quotes/random"),
               handler: "NetworkOnly",
             },
-            // Citation du jour (+ image)
             {
               urlPattern: api("/quotes/today(/image)?"),
               handler: "NetworkFirst",
@@ -66,7 +63,6 @@ export default defineConfig(({ mode }) => {
                 cacheableResponse: { statuses: [200] },
               },
             },
-            // Feed et citations par catégorie : le seed est ignoré dans la clé
             {
               urlPattern: api("/(quotes|categories/[^/?]+/quotes)/?"),
               handler: "NetworkFirst",
@@ -86,7 +82,6 @@ export default defineConfig(({ mode }) => {
                 ],
               },
             },
-            // Détail d'une citation, catégories
             {
               urlPattern: api("/(quotes/[^/?]+|categories(/[^/?]+)?)/?"),
               handler: "StaleWhileRevalidate",
@@ -97,6 +92,7 @@ export default defineConfig(({ mode }) => {
               },
             },
           ],
+          importScripts: ["periodic-sync.js"],
         },
       }),
     ],
