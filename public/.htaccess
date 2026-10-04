@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # www -> domaine principal
+  RewriteCond %{HTTP_HOST} ^www\.qotdia\.com$ [NC]
+  RewriteRule ^(.*)$ https://qotdia.com/$1 [R=301,L]
+
+  # Application à page unique : toute adresse qui n'est pas un fichier renvoie index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !\.(js|css|png|jpe?g|svg|ico|webp|webmanifest|json|map|txt|xml|woff2?)$ [NC]
+  RewriteRule ^ /index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Fichiers à empreinte (nom différent à chaque version) : cache long
+  <FilesMatch "\.(js|css|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Coquille de l'application, service worker, manifeste : jamais mis en cache
+  <FilesMatch "^(index\.html|sw\.js|registerSW\.js|periodic-sync\.js|manifest\.webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
