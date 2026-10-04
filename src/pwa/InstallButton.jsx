@@ -7,7 +7,7 @@ export default function InstallButton() {
   if (canInstall) {
     return (
       <button className="pwa-install" onClick={install} >
-        <div className="pwa-install-logo"> <img src="/logo.png" alt="pwa-install-logo" /> </div>
+        <div className="pwa-install-logo"> <img src="/logo.png" alt="pwa-install-logo" /></div>
         <b>Install Qotdia</b> {LuDownload({ style: { fontSize: "1.2rem" } })}
       </button>
     );
