@@ -93,7 +93,7 @@ const ExpQuoteCard = ({ quote }) => {
             )}
           </div>
 
-          <div className="share icon" onClick={() => shareQuote(quote.id)}>
+          <div className="share icon" onClick={() => shareQuote(quote)}>
             <LuShare2 />
           </div>
           <div className="like icon" onClick={() => handleFavorite(quote)}>
