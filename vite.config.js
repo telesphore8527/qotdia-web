@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => {
           "icons/favicon.ico",
           "logo.png",
           "logo.svg",
+          "og-default.png",
         ],
         manifest: {
           name: "Qotdia",
