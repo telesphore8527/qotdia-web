@@ -27,7 +27,7 @@ const DailyQuoteCard = ({ quote }) => {
     <section className="dailyquotecard">
       <CategoryBackground categorySlug={quote["category"].slug}>
         <article className="quote-card">
-          <div className="quote-card-header">
+          <div className="quote-card-header" style={{display: "none"}}>
             {/* ici je dois mettre la ou on suit par voice et la category mais c'est pour plus tard sinon je vais jamais m'areter dans le design */}
           </div>
           <div>

@@ -9,7 +9,7 @@ export const useQuoteActions = () => {
       navigator.share({
         title: "discover this quote - qotdia",
         text: `${quote.content} - ${quote.author}`,
-        url: window.location.href,
+        url: window.location.href==="https://qotdia.com/" ? "https://api.qotdia.com/api/v1/quotes/today/image" : window.location.href,
       });
     } catch (e) {
       console.log(e);
