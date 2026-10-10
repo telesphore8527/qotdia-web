@@ -2,8 +2,7 @@ import "./DailyQuoteCard.css";
 import CategoryBackground from "../CategoryBackground/CategoryBackground";
 import DQCTools from "../DQCTools/DQCTools";
 import { LuQuote } from "react-icons/lu";
-import { FaQuoteLeft } from "react-icons/fa";
-import { FaQuoteRight } from "react-icons/fa6";
+
 
 const DailyQuoteCateg = ({ category }) => {
   return (

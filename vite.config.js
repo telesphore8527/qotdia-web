@@ -52,6 +52,19 @@ export default defineConfig(({ mode }) => {
           cleanupOutdatedCaches: true,
           runtimeCaching: [
             {
+              urlPattern: ({ url }) =>
+                url.origin === "https://api.qotdia.com" &&
+                url.pathname.endsWith("/quotes/today/image"),
+              handler: "NetworkFirst",
+              options: {
+                cacheName: "qotdia-share-images",
+                networkTimeoutSeconds: 4,
+                cacheableResponse: { statuses: [200] },
+                matchOptions: { ignoreVary: true },
+                expiration: { maxEntries: 12, maxAgeSeconds: 60 * 60 * 24 * 7 },
+              },
+            },
+            {
               urlPattern: api("/quotes/random"),
               handler: "NetworkOnly",
             },
